@@ -8,8 +8,8 @@ public class ScalefromAudioClip : MonoBehaviour
     public Vector3 maxScale;
     public MicrophoneDetection detector;
 
-    public float loudnessSensibility = 0.1f;
-    public float threshold = 1000f;
+    public float loudnessSensibility;
+    public float threshold;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,13 +20,17 @@ public class ScalefromAudioClip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         float loudness = detector.GetLoudnessFromAudioClip(source.timeSamples, source.clip) * loudnessSensibility;
 
+ 
 
         if(loudness<threshold)
-            loudness = 0;
+            loudness = threshold;
              
         //lerp value from minscale to maxscale
-        transform.localScale = Vector3.Lerp(minScale, maxScale, loudness);
+        transform.localScale = Vector3.Lerp(minScale, maxScale, loudness/10);
+
+
     }
 }
