@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+
 
 public class ScalefromAudioClip : MonoBehaviour
 {
@@ -8,8 +8,8 @@ public class ScalefromAudioClip : MonoBehaviour
     public Vector3 maxScale;
     public MicrophoneDetection detector;
 
-    public float loudnessSensibility = 100;
-    public float threshold = 0.1f;
+    public float loudnessSensibility = 0.1f;
+    public float threshold = 1000f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

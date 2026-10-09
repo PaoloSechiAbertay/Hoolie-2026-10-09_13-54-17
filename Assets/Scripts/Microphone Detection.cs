@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+
 
 public class MicrophoneDetection : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class MicrophoneDetection : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //MicrophoneToAudioClip();
+        MicrophoneToAudioClip();
     }
 
     // Update is called once per frame
