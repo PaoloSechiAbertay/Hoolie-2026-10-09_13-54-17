@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
+    Rigidbody Rb;
 
     float speed = 5;
 
@@ -9,15 +10,14 @@ public class Fireball : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Rb = GetComponent<Rigidbody>();
+        Rb.linearVelocity = Vector3.back * speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += -Vector3.forward * speed * Time.deltaTime;
-
-        if (transform.position.z < -5)
+        if (transform.position.z < -10)
         {
             Destroy(gameObject);
         }
@@ -27,7 +27,6 @@ public class Fireball : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player") 
         {
-            print(collision.gameObject + "hit");
             Destroy(gameObject);
         }
     }

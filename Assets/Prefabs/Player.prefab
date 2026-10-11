@@ -70,7 +70,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 708ad61e2a86d9a4f8d5afb070a7f53a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
   player_number: 1
   jumpingcooldown: 0
   jumpforce: 60
+  ghostMat: {fileID: 2100000, guid: 20ca6f64cdde5b141a3a7ffe04254ac3, type: 2}
 --- !u!54 &8479586864905758624
 Rigidbody:
   m_ObjectHideFlags: 0

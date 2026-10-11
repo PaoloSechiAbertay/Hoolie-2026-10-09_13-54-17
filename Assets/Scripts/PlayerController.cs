@@ -7,33 +7,27 @@ public class PlayerController : MonoBehaviour
 {
     InputAction Button;
     Rigidbody Rb;
+    MeshRenderer Renderer;
+
+    Coroutine jump;
 
     public int player_number = 1;
 
     public bool jumpingcooldown = false;
     public float jumpforce = 8f;
 
+    public bool ghost = false;
+    Material Mat;
+    public Material ghostMat;
+
     void Start()
     {
         Rb = GetComponent<Rigidbody>();
+        Renderer = GetComponent<MeshRenderer>();
+        Mat = Renderer.material;
+
 
         Button = InputSystem.actions.FindAction("Button" + player_number);
-        /*/switch (player_number)
-        {
-            case 1:
-                Button = InputSystem.actions.FindAction("Button1"); 
-                break;
-            case 2:
-                Button = InputSystem.actions.FindAction("Button2");
-                break;
-            case 3:
-                Button = InputSystem.actions.FindAction("Button3");
-                break;
-            case 4:
-                Button = InputSystem.actions.FindAction("Button4");
-                break;
-        }
-        /*/
     }
 
     void Update()
@@ -43,11 +37,11 @@ public class PlayerController : MonoBehaviour
 
     void Inputs()
     {
-        if (Button.IsPressed())
+        if (Button.WasPressedThisFrame())
         {
-            if (!jumpingcooldown)
+            if (!jumpingcooldown && jump == null && !ghost)
             {
-                StartCoroutine(Jump());
+                jump = StartCoroutine(Jump());
             }
         }
     }
@@ -61,6 +55,27 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         jumpingcooldown = false;
+        jump = null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Attack" && !ghost)
+        {
+            StartCoroutine(Damage());
+        }
+    }
+
+    IEnumerator Damage()
+    {
+        ghost = true;
+        Renderer.material = ghostMat;
+
+        yield return new WaitForSeconds(5f);
+
+        Renderer.material = Mat;
+        ghost = false;
+
     }
 
 }

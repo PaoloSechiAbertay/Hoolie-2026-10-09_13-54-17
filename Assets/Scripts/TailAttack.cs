@@ -1,19 +1,24 @@
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using System.Collections;
 
 public class TailAttack : MonoBehaviour
 {
+    Rigidbody Rb;
+    Coroutine clock;
+    Coroutine attack;
 
     bool Onleft = true;
-    public bool attacking = true;
+    bool attacking = false;
 
-    public float speed = 5;
+    float speed = 5;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Rb = GetComponent<Rigidbody>();
+        clock = StartCoroutine(Clock());
     }
 
     // Update is called once per frame
@@ -21,38 +26,52 @@ public class TailAttack : MonoBehaviour
     {
         if (attacking)
         {
-            Attack();
+            if (attack == null)
+            {
+                attack = StartCoroutine(Attack());
+            }
+        }
+        else if (clock == null)
+        {
+            clock = StartCoroutine(Clock());
         }
     }
 
-    void Attack()
+    IEnumerator Clock()
+    {
+        yield return new WaitForSeconds(Random.Range(10f, 20f));
+        attacking = true;
+        clock = null;
+    }
+
+    IEnumerator Attack()
     {
         if (Onleft)
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
-            if (transform.position.x > 15)
+            Rb.linearVelocity = Vector3.right * speed;
+            while (transform.position.x < 15)
             {
-                Onleft = false;
-                attacking = false;
+                yield return null;
             }
+            transform.position = new Vector3(15, transform.position.y, transform.position.z);
+            Rb.linearVelocity = Vector3.zero;
+            Onleft = false;
+            attacking = false;
         }
         else
         {
-            transform.position += Vector3.left * speed * Time.deltaTime;
-            if (transform.position.x < -15)
+            Rb.linearVelocity = Vector3.left * speed;
+            while (transform.position.x > -15)
             {
-                Onleft = true;
-                attacking = false;
+                yield return null;
             }
+            transform.position = new Vector3(-15, transform.position.y, transform.position.z);
+            Rb.linearVelocity = Vector3.zero;
+            Onleft = true;
+            attacking = false;
         }
+
+        attack = null;
     }
 
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player") 
-        {
-            print(collision.gameObject + "hit");
-        }
-    }
 }
