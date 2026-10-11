@@ -22,13 +22,13 @@ public class ScaleFromMicrophone : MonoBehaviour
     {
         float loudness = detector.GetLoudnessFromMicrophone() * loudnessSensibility;
 
-
+        //remove tiny changes in background noise
         if (loudness < threshold)
-         loudness = 0.1f;
+        { loudness = threshold; }
 
-        Debug.Log(loudness);
+        //Debug.Log(loudness);
 
         //lerp value from minscale to maxscale
-        transform.localScale = Vector3.Lerp(minScale, maxScale, loudness/10);
+        transform.localScale = Vector3.Lerp(minScale, maxScale, loudness);
     }
 }

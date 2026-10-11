@@ -1,30 +1,67 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public InputAction Button1;
+    InputAction Button;
+    Rigidbody Rb;
 
+    public int player_number = 1;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public bool jumping = false;
+    public float jumpforce = 8f;
+
     void Start()
     {
-        Button1 = InputSystem.actions.FindAction("Button1");
+        Rb = GetComponent<Rigidbody>();
+
+        Button = InputSystem.actions.FindAction("Button" + player_number);
+        /*/switch (player_number)
+        {
+            case 1:
+                Button = InputSystem.actions.FindAction("Button1"); 
+                break;
+            case 2:
+                Button = InputSystem.actions.FindAction("Button2");
+                break;
+            case 3:
+                Button = InputSystem.actions.FindAction("Button3");
+                break;
+            case 4:
+                Button = InputSystem.actions.FindAction("Button4");
+                break;
+        }
+        /*/
     }
 
-    // Update is called once per frame
     void Update()
     {
-        inputs();
+        Inputs();
     }
 
-    void inputs()
+    void Inputs()
     {
-        if (Button1.IsPressed())
+        if (Button.IsPressed())
         {
-            Debug.Log("You Did 10 Damage");
+            Debug.Log("Jump");
+            if (!jumping)
+            {
+                StartCoroutine(Jump());
+            }
         }
+    }
+
+    IEnumerator Jump()
+    {
+        jumping = true;
+
+        Rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
+
+        yield return new WaitForSeconds(2f);
+
+        jumping = false;
     }
 
 }
