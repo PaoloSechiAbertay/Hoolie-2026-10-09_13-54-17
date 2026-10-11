@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     public int player_number = 1;
 
-    public bool jumping = false;
+    public bool jumpingcooldown = false;
     public float jumpforce = 8f;
 
     void Start()
@@ -45,8 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Button.IsPressed())
         {
-            Debug.Log("Jump");
-            if (!jumping)
+            if (!jumpingcooldown)
             {
                 StartCoroutine(Jump());
             }
@@ -55,13 +54,13 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Jump()
     {
-        jumping = true;
+        jumpingcooldown = true;
 
         Rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
 
         yield return new WaitForSeconds(2f);
 
-        jumping = false;
+        jumpingcooldown = false;
     }
 
 }

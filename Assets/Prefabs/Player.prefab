@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8479586864905758624}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e0d2dfd0908464e904c20c274ceb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  jumping: 0
+  player_number: 1
+  jumpingcooldown: 0
   jumpforce: 60
 --- !u!54 &8479586864905758624
 Rigidbody:
