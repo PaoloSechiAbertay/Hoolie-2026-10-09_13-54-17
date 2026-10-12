@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 
         ghost = true;
         Renderer.material = ghostMat;
-        healthBar.transform.localScale = new Vector3(healthBar.transform.localScale.x-0.2f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+        //healthBar.transform.localScale = new Vector3(healthBar.transform.localScale.x-0.2f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
 
         yield return new WaitForSeconds(5f);
 
