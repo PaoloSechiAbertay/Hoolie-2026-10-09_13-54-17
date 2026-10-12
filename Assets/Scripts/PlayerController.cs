@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     Coroutine jump;
 
+    public int playerHealth;
+
     public int player_number = 1;
 
     public bool jumpingcooldown = false;
@@ -68,6 +70,9 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Damage()
     {
+        playerHealth -= 10;
+        Debug.Log(playerHealth);
+
         ghost = true;
         Renderer.material = ghostMat;
 
