@@ -1463,6 +1463,10 @@ PrefabInstance:
       value: Tail
       objectReference: {fileID: 0}
     - target: {fileID: 7242726001381850271, guid: fb341c056dd584b4c94f7d422b0e0919, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242726001381850271, guid: fb341c056dd584b4c94f7d422b0e0919, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15
       objectReference: {fileID: 0}

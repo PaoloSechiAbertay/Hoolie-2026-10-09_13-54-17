@@ -26,7 +26,7 @@ public class ScaleFromMicrophone : MonoBehaviour
         if (loudness < threshold)
         { loudness = threshold; }
 
-        //Debug.Log(loudness);
+        Debug.Log(loudness);
 
         //lerp value from minscale to maxscale
         transform.localScale = Vector3.Lerp(minScale, maxScale, loudness);

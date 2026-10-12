@@ -112,7 +112,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.8, y: 0.8, z: 0.975}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8079032271049503512
 MonoBehaviour:
@@ -126,8 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012375528edf19348996900d07f961a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TailAttack
-  attacking: 1
-  speed: 5
 --- !u!54 &9097827171019860433
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
         Rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         jumpingcooldown = false;
         jump = null;
