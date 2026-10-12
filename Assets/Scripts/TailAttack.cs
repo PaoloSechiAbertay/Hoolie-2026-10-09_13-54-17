@@ -9,7 +9,7 @@ public class TailAttack : MonoBehaviour
     Coroutine attack;
 
     bool Onleft = true;
-    bool attacking = false;
+    public bool attacking = false;
 
     float speed = 5;
 
@@ -46,6 +46,8 @@ public class TailAttack : MonoBehaviour
 
     IEnumerator Attack()
     {
+        yield return new WaitForSeconds(2f);
+
         if (Onleft)
         {
             Rb.linearVelocity = Vector3.right * speed;

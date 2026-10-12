@@ -5,6 +5,7 @@ public class FireballSpawner : MonoBehaviour
 {
     public GameObject fireball; 
     public PlayerController player;
+    public TailAttack attack;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,7 +23,7 @@ public class FireballSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (!player.ghost)
+            if (!player.ghost && attack.attacking == false)
             {
                 Spawn();
                 yield return new WaitForSeconds(Random.Range(2f, 4f));
@@ -33,7 +34,15 @@ public class FireballSpawner : MonoBehaviour
 
     void Spawn()
     {
-        Random.Range(2f, 4f);
-        Instantiate(fireball, new Vector3(transform.position.x, transform.position.y + Random.Range(0, 3), transform.position.z), Quaternion.identity);
+        int spawnpoint = Random.Range(0, 2);
+
+        if (spawnpoint == 1)
+        {
+            Instantiate(fireball, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(fireball, new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), Quaternion.identity);
+        }
     }
 }
