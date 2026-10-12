@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public int playerHealth;
 
     public int player_number = 1;
+    public GameObject healthBar;
 
     public bool jumpingcooldown = false;
     public float jumpforce = 8f;
@@ -75,11 +77,14 @@ public class PlayerController : MonoBehaviour
 
         ghost = true;
         Renderer.material = ghostMat;
+        healthBar.transform.localScale = new Vector3(healthBar.transform.localScale.x-0.2f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
 
         yield return new WaitForSeconds(5f);
 
         Renderer.material = Mat;
         ghost = false;
+
+
 
     }
 
