@@ -31,7 +31,15 @@ public class MicrophoneDetection : MonoBehaviour
 
     public float GetLoudnessFromMicrophone()
     {
-        return GetLoudnessFromAudioClip(Microphone.GetPosition(Microphone.devices[0]), microphoneClip);
+        if (Microphone.devices.Length > 0)
+        {
+            return GetLoudnessFromAudioClip(Microphone.GetPosition(Microphone.devices[0]), microphoneClip);
+        }
+        else 
+        {
+            Debug.LogWarning("NO MICROPHONE FOUND");
+            return 0.0f;
+        }
     }
 
     public float GetLoudnessFromAudioClip(int clipPosition,AudioClip clip)
