@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool on = true;
+
     InputAction Button;
     Rigidbody Rb;
     MeshRenderer Renderer;
@@ -16,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public int player_number = 1;
     public GameObject healthBar;
+    public bool dead = false;
 
     public bool jumpingcooldown = false;
     public float jumpforce = 8f;
@@ -82,6 +85,7 @@ public class PlayerController : MonoBehaviour
 
         if (playerHealth <= 1)
         {
+            dead = true;
             Rb.linearVelocity = Vector3.zero;
             transform.localPosition = new Vector3(transform.localPosition.x, 1, transform.localPosition.z);
         }
@@ -93,10 +97,10 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.localPosition.y < 2)
         {
+            dead = false;
             playerHealth += 10;
             StartCoroutine(GhostState(1f));
         }
-
 
     }
 
