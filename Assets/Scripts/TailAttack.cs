@@ -53,32 +53,46 @@ public class TailAttack : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
+
         if (Onleft)
         {
-            Rb.linearVelocity = Vector3.right * speed;
-            while (transform.position.x < 15)
+            Rb.angularVelocity = (Vector3.right * speed)/100;
+            while (transform.rotation.y > 15)
             {
                 yield return null;
             }
-            transform.position = new Vector3(15, transform.position.y, transform.position.z);
-            Rb.linearVelocity = Vector3.zero;
+            //transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);
+            //Rb.angularVelocity = Vector3.zero;
             Onleft = false;
             attacking = false;
         }
-        else
-        {
-            Rb.linearVelocity = Vector3.left * speed;
-            while (transform.position.x > -15)
+        
+            /*if (Onleft)
             {
-                yield return null;
+                Rb.linearVelocity = Vector3.right * speed;
+                while (transform.position.x < 15)
+                {
+                    yield return null;
+                }
+                transform.position = new Vector3(15, transform.position.y, transform.position.z);
+                Rb.linearVelocity = Vector3.zero;
+                Onleft = false;
+                attacking = false;
             }
-            transform.position = new Vector3(-15, transform.position.y, transform.position.z);
-            Rb.linearVelocity = Vector3.zero;
-            Onleft = true;
-            attacking = false;
-        }
+            else
+            {
+                Rb.linearVelocity = Vector3.left * speed;
+                while (transform.position.x > -15)
+                {
+                    yield return null;
+                }
+                transform.position = new Vector3(-15, transform.position.y, transform.position.z);
+                Rb.linearVelocity = Vector3.zero;
+                Onleft = true;
+                attacking = false;
+            }*/
 
-        attack = null;
+            attack = null;
     }
 
 }

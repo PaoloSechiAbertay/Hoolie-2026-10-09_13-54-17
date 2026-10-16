@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     public bool dead = false;
 
     public int player_number = 1;
-    public GameObject healthBar;
   
 
     public bool jumpingcooldown = false;
