@@ -34,15 +34,15 @@ public class FireballSpawner : MonoBehaviour
 
     void Spawn()
     {
-        int spawnpoint = Random.Range(0, 2);
+        int spawnpoint = Random.Range(0, 3);
 
         if (spawnpoint == 1)
         {
-            Instantiate(fireball, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            Instantiate(fireball, new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), Quaternion.identity);
         }
         else
         {
-            Instantiate(fireball, new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), Quaternion.identity);
+            Instantiate(fireball, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         }
     }
 }

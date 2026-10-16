@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35afcbc14f5e88a4b96c3729ee91ac35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fireball
-  speed: 6
+  speed: 12
 --- !u!54 &-6627884275157078476
 Rigidbody:
   m_ObjectHideFlags: 0

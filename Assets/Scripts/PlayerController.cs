@@ -15,15 +15,18 @@ public class PlayerController : MonoBehaviour
     Coroutine jump;
 
     public int playerHealth;
+    int MAXHEATH = 30;
+    public GameObject healthBar;
+    public bool ghost = false;
+    public bool dead = false;
 
     public int player_number = 1;
     public GameObject healthBar;
-    public bool dead = false;
+  
 
     public bool jumpingcooldown = false;
     public float jumpforce = 8f;
 
-    public bool ghost = false;
     Material Mat;
     public Material ghostMat;
 
@@ -35,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
 
         Button = InputSystem.actions.FindAction("Button" + player_number);
+
+        playerHealth = 30;
     }
 
     void Update()
@@ -87,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
         StartCoroutine(GhostState(2f));
 
-        if (playerHealth <= 1)
+        if (playerHealth <= 0)
         {
             dead = true;
             Rb.linearVelocity = Vector3.zero;
@@ -104,7 +109,7 @@ public class PlayerController : MonoBehaviour
         {
             playing = true;
             dead = false;
-            playerHealth += 10;
+            playerHealth = MAXHEATH;
             StartCoroutine(GhostState(1f));
         }
 
