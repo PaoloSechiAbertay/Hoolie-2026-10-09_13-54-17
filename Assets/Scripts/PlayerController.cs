@@ -13,15 +13,16 @@ public class PlayerController : MonoBehaviour
     Coroutine jump;
 
     public int playerHealth;
+    int MAXHEATH = 30;
+    public GameObject healthBar;
+    public bool ghost = false;
+    public bool dead = false;
 
     public int player_number = 1;
-    public GameObject healthBar;
-    int MAXHEATH = 30;
 
     public bool jumpingcooldown = false;
     public float jumpforce = 8f;
 
-    public bool ghost = false;
     Material Mat;
     public Material ghostMat;
 
@@ -83,8 +84,9 @@ public class PlayerController : MonoBehaviour
 
         StartCoroutine(GhostState(2f));
 
-        if (playerHealth <= 1)
+        if (playerHealth <= 0)
         {
+            dead = true;
             Rb.linearVelocity = Vector3.zero;
             transform.localPosition = new Vector3(transform.localPosition.x, 1, transform.localPosition.z);
         }
@@ -96,6 +98,7 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.localPosition.y < 2)
         {
+            dead = false;
             playerHealth = MAXHEATH;
             StartCoroutine(GhostState(1f));
         }
