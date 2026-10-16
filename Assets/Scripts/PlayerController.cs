@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool playing = false;
+
     InputAction Button;
     Rigidbody Rb;
     MeshRenderer Renderer;
@@ -19,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public bool dead = false;
 
     public int player_number = 1;
+    public GameObject healthBar;
+  
 
     public bool jumpingcooldown = false;
     public float jumpforce = 8f;
@@ -51,6 +55,10 @@ public class PlayerController : MonoBehaviour
             if (!jumpingcooldown && jump == null && !ghost)
             {
                 jump = StartCoroutine(Jump());
+                if (!playing)
+                {
+                    playing = true;
+                }
             }
         }
     }
@@ -89,6 +97,7 @@ public class PlayerController : MonoBehaviour
             dead = true;
             Rb.linearVelocity = Vector3.zero;
             transform.localPosition = new Vector3(transform.localPosition.x, 1, transform.localPosition.z);
+            StartCoroutine(TimeOut());
         }
 
         healthBar.transform.localScale = new Vector3(healthBar.transform.localScale.x - 0.2f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
@@ -98,11 +107,11 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.localPosition.y < 2)
         {
+            playing = true;
             dead = false;
             playerHealth = MAXHEATH;
             StartCoroutine(GhostState(1f));
         }
-
 
     }
 
@@ -116,6 +125,22 @@ public class PlayerController : MonoBehaviour
 
         Renderer.material = Mat;
         ghost = false;
+    }
+
+    IEnumerator TimeOut()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            if (dead)
+            {
+                yield return new WaitForSeconds(0.5f);
+            }
+            else
+            {
+                yield break;
+            }
+        }
+        playing = false;
     }
 
 }
