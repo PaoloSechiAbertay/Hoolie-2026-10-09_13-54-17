@@ -4,7 +4,7 @@ public class Fireball : MonoBehaviour
 {
     Rigidbody Rb;
 
-    public float speed = 5;
+    public float speed;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

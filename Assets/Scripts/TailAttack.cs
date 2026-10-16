@@ -8,10 +8,13 @@ public class TailAttack : MonoBehaviour
     Coroutine clock;
     Coroutine attack;
 
+
+    public FlashWarningDragonTail flashWarning;
+
     bool Onleft = true;
     public bool attacking = false;
 
-    float speed = 5;
+    float speed = 10;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -46,6 +49,8 @@ public class TailAttack : MonoBehaviour
 
     IEnumerator Attack()
     {
+        flashWarning.StartCoroutine(flashWarning.FlashWarning());
+
         yield return new WaitForSeconds(2f);
 
         if (Onleft)
