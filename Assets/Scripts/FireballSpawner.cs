@@ -23,7 +23,7 @@ public class FireballSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (!player.ghost && attack.attacking == false)
+            if (!player.ghost && !player.dead && !attack.attacking)
             {
                 Spawn();
                 yield return new WaitForSeconds(Random.Range(2f, 4f));

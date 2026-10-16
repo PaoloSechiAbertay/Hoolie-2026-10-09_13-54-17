@@ -4,7 +4,7 @@ using UnityEngine;
 public class ChargePlayerAttack : MonoBehaviour
 {
     public float AttackBar = 0;
-    float maxCharge = 100;
+    float maxCharge = 50;
     public int numberOfPlayers;
     public PlayerController[] players = new PlayerController[4];
 
@@ -16,11 +16,17 @@ public class ChargePlayerAttack : MonoBehaviour
             print("Strike Martin!!");
             AttackBar = 0;
         }
-        foreach(PlayerController player in players)
+
+        numberOfPlayers = 0;
+        foreach (PlayerController player in players)
         {
-            if (player.on && !player.dead)
+            if (player.playing)
             {
-                ChargeBar();
+                numberOfPlayers++;
+                if (!player.dead)
+                {
+                    ChargeBar();
+                }
             }
         }
     }
@@ -28,10 +34,10 @@ public class ChargePlayerAttack : MonoBehaviour
     public void ChargeBar()
     {
         //scale with players but still push having most players
-        //4 players do 0.45 each, adding to 1.8,
+        //4 players do 0.45 each, adding to 1.8 per second
         //3 do 0.533 each, 1.6
         //2 do 0.7 each, 1.4
-        //1 does 1, 1.2  
-        AttackBar += (1f / numberOfPlayers) + 0.2f; 
+        //1 does 1.2, 1.2  
+        AttackBar += ((1f / numberOfPlayers) + 0.2f) * Time.deltaTime; 
     }
 }
