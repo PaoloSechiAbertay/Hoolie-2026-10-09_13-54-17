@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Inputs();
+        
     }
 
     void Inputs()
@@ -52,6 +53,8 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Jump()
     {
+        UnDeathState();
+
         jumpingcooldown = true;
 
         Rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
@@ -66,26 +69,47 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Attack" && !ghost)
         {
-            StartCoroutine(Damage());
+            Damage();
         }
     }
 
-    IEnumerator Damage()
+    void Damage()
     {
         playerHealth -= 10;
         Debug.Log(playerHealth);
 
+        StartCoroutine(GhostState(2f));
+
+        if (playerHealth <= 1)
+        {
+            Rb.linearVelocity = Vector3.zero;
+            transform.localPosition = new Vector3(transform.localPosition.x, 1, transform.localPosition.z);
+        }
+
+        healthBar.transform.localScale = new Vector3(healthBar.transform.localScale.x - 0.2f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+    }
+
+    void UnDeathState()
+    {
+        if (transform.localPosition.y < 2)
+        {
+            playerHealth += 10;
+            StartCoroutine(GhostState(1f));
+        }
+
+
+    }
+
+    IEnumerator GhostState(float time)
+    {
         ghost = true;
         Renderer.material = ghostMat;
-        //healthBar.transform.localScale = new Vector3(healthBar.transform.localScale.x-0.2f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+        healthBar.transform.localScale = new Vector3(healthBar.transform.localScale.x - 0.2f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(time);
 
         Renderer.material = Mat;
         ghost = false;
-
-
-
     }
 
 }

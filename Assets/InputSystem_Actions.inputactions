@@ -1058,6 +1058,17 @@
                 },
                 {
                     "name": "",
+                    "id": "a9aba64f-f9b4-4624-b561-87766918fb25",
+                    "path": "<Keyboard>/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Button2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3de3795a-ff01-47aa-8bf9-61fafe76348d",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -1069,11 +1080,33 @@
                 },
                 {
                     "name": "",
+                    "id": "9a30031c-6a66-41a3-aefb-18739ec0c6f7",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Button3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b732c166-9d29-4331-8782-c61ddaad219e",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "Button4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "37696ba9-16d2-4b96-b7e6-51f0a38fbfbe",
+                    "path": "<Keyboard>/numpad5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Button4",
                     "isComposite": false,
                     "isPartOfComposite": false

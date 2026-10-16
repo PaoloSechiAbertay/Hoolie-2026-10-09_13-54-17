@@ -24,7 +24,7 @@ public class ScaleFromMicrophone : MonoBehaviour
 
         //remove tiny changes in background noise
         if (loudness < threshold)
-        { loudness = threshold; }
+        { loudness = 0; }
 
         Debug.Log(loudness);
 
