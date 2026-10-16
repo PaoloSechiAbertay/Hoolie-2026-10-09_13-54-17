@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ChargePlayerAttack : MonoBehaviour
 {
+    bool charging = true;
     public float AttackBar = 0;
     float maxCharge = 50;
     public int numberOfPlayers;
@@ -13,21 +14,30 @@ public class ChargePlayerAttack : MonoBehaviour
         if (AttackBar >= maxCharge)
         {
             //run martin strike
+            charging = false;
             print("Strike Martin!!");
             AttackBar = 0;
+            charging = true;
         }
 
-        numberOfPlayers = 0;
-        foreach (PlayerController player in players)
+        if (charging)
         {
-            if (player.playing)
+            numberOfPlayers = 0;
+            foreach (PlayerController player in players)
             {
-                numberOfPlayers++;
-                if (!player.dead)
+                if (player.playing)
+                {
+                    numberOfPlayers++;
+                }
+            }
+            foreach (PlayerController player in players)
+            {
+                if (player.playing && !player.dead)
                 {
                     ChargeBar();
                 }
             }
+            
         }
     }
 
