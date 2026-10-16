@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public int player_number = 1;
     public GameObject healthBar;
+    int MAXHEATH = 30;
 
     public bool jumpingcooldown = false;
     public float jumpforce = 8f;
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
 
         Button = InputSystem.actions.FindAction("Button" + player_number);
+
+        playerHealth = 30;
     }
 
     void Update()
@@ -93,7 +96,7 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.localPosition.y < 2)
         {
-            playerHealth += 10;
+            playerHealth = MAXHEATH;
             StartCoroutine(GhostState(1f));
         }
 
