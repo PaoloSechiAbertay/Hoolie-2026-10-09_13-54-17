@@ -637,6 +637,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraShake
   camTransform: {fileID: 330585546}
+  shakeDuration: 0
+  shakeAmount: 0.7
+  decreaseFactor: 1
 --- !u!1001 &353484013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3019,6 +3022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4327307c6bac17c4b995fe164559a4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChargePlayerAttack
+  microphoneDetection: {fileID: 2027202010}
   AttackBar: 0
   numberOfPlayers: 0
   players:

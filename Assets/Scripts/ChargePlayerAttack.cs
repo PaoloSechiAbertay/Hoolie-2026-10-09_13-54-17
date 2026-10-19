@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -6,6 +7,14 @@ using UnityEngine.UIElements;
 
 public class ChargePlayerAttack : MonoBehaviour
 {
+    [SerializeField] MicrophoneDetection microphoneDetection;
+    public float loudnessSensibility = 100f;
+    public float threshold = 0.1f;
+
+    public float baseDamage = 5f;
+    public float maxDamage = 50f;
+    public float minDamage = 5f;
+
     bool charging = true;
     public float AttackBar = 0;
     float maxCharge = 50;
@@ -63,9 +72,14 @@ public class ChargePlayerAttack : MonoBehaviour
 
         //audio input
         float maxNoise = 0;
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 50; i++)
         {
-            float noise = (Random.Range(1f,50f)); //stand in for input    
+            //check mic noise
+            float noise = microphoneDetection.GetLoudnessFromMicrophone() * loudnessSensibility;
+            //if (noise < threshold){ noise = 0; }
+            Debug.Log("you were: " + noise + " loud");
+
+            //find loudest point
             if (noise > maxNoise)
             {
                 maxNoise = noise;
@@ -73,13 +87,17 @@ public class ChargePlayerAttack : MonoBehaviour
             yield return new WaitForSeconds(0.1f) ;
 
         }
-        
-        
+        Debug.Log("the loudest you were was: " + maxNoise + " loud");
+
         //remove UI
         Debug.Log("stop striking, Martin");
 
+        float damage = baseDamage * maxNoise;
+        if (damage > maxDamage) { damage = maxDamage; }
+        if (damage < minDamage) { damage = minDamage; }
+
         //deal damage based on loudest noise in time
-        dragon.DamageDragon(maxNoise);
+        dragon.DamageDragon(damage);
 
         charging = true;
     }
