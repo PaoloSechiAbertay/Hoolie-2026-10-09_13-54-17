@@ -14,6 +14,8 @@ public class TailAttack : MonoBehaviour
     bool Onleft = true;
     public bool attacking = false;
 
+    bool rotationCheck = false;
+    public Vector3 rotation;
     float speed = 10;
 
 
@@ -22,6 +24,7 @@ public class TailAttack : MonoBehaviour
     {
         Rb = GetComponent<Rigidbody>();
         clock = StartCoroutine(Clock());
+        
     }
 
     // Update is called once per frame
@@ -38,6 +41,8 @@ public class TailAttack : MonoBehaviour
         {
             clock = StartCoroutine(Clock());
         }
+
+        tailRotation();
     }
 
     IEnumerator Clock()
@@ -55,44 +60,47 @@ public class TailAttack : MonoBehaviour
 
 
         if (Onleft)
-        {
-            Rb.angularVelocity = (Vector3.right * speed)/100;
-            while (transform.rotation.y > 15)
-            {
-                yield return null;
-            }
-            //transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);
-            //Rb.angularVelocity = Vector3.zero;
-            Onleft = false;
-            attacking = false;
-        }
-        
-            /*if (Onleft)
-            {
-                Rb.linearVelocity = Vector3.right * speed;
-                while (transform.position.x < 15)
-                {
-                    yield return null;
-                }
-                transform.position = new Vector3(15, transform.position.y, transform.position.z);
-                Rb.linearVelocity = Vector3.zero;
-                Onleft = false;
-                attacking = false;
-            }
-            else
-            {
-                Rb.linearVelocity = Vector3.left * speed;
-                while (transform.position.x > -15)
-                {
-                    yield return null;
-                }
-                transform.position = new Vector3(-15, transform.position.y, transform.position.z);
-                Rb.linearVelocity = Vector3.zero;
-                Onleft = true;
-                attacking = false;
-            }*/
+        { 
+            rotationCheck = true;
 
-            attack = null;
+            yield return new WaitForSeconds(1.8f);
+            transform.rotation = Quaternion.Euler(transform.rotation.x, -90, transform.rotation.z);
+            Onleft = false;
+            rotationCheck = false;  
+            attacking = false;
+
+        }
+        else
+        {
+            rotationCheck = true;
+
+            yield return new WaitForSeconds(1.8f);
+            transform.rotation = Quaternion.Euler(transform.rotation.x,90, transform.rotation.z);
+            Onleft = true;
+            rotationCheck = false;
+            attacking = false;
+
+        }
+
+        attack = null;
+    }
+
+    void tailRotation()
+    {
+
+        if (rotationCheck)
+        {
+            if (Onleft)
+            {
+
+                transform.Rotate(rotation * Time.deltaTime * speed);
+            }
+            else if (!Onleft)
+            {
+
+                transform.Rotate((-1*rotation) * Time.deltaTime * speed);
+            }
+        }
     }
 
 }
