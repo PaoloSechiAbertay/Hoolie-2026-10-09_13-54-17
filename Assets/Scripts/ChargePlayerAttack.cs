@@ -9,6 +9,7 @@ public class ChargePlayerAttack : MonoBehaviour
 {
     [SerializeField] MicrophoneDetection microphoneDetection;
     public float loudnessSensibility = 100f;
+    public UnityEngine.UI.Slider NoiseBar;
 
     public float baseDamage = 5f;
     public float maxDamage = 50f;
@@ -65,8 +66,9 @@ public class ChargePlayerAttack : MonoBehaviour
     {
         charging = false;
         AttackBar = 0;
-        
+
         //UI for strike martin
+        NoiseBar.enabled = true;
         print("Strike Martin!!");
 
         //audio input
@@ -76,6 +78,7 @@ public class ChargePlayerAttack : MonoBehaviour
             //check mic noise
             float noise = microphoneDetection.GetLoudnessFromMicrophone() * loudnessSensibility;
             Debug.Log("you were: " + noise + " loud");
+            NoiseBar.value = noise;
 
             //find loudest point
             if (noise > maxNoise)
@@ -89,6 +92,7 @@ public class ChargePlayerAttack : MonoBehaviour
 
         //remove UI
         Debug.Log("stop striking, Martin");
+        NoiseBar.enabled = false;
 
         float damage = baseDamage * maxNoise;
         if (damage > maxDamage) { damage = maxDamage; }

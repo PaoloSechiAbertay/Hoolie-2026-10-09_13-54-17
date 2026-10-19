@@ -10,22 +10,29 @@ public class DragonHealth : MonoBehaviour
     float MAXHEALTH = 100;
 
     public ScreenShake Shake;
+    public UnityEngine.UI.Slider HealthBar;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Health = MAXHEALTH;
+
+        HealthBar.maxValue = MAXHEALTH;
+        HealthBar.value = MAXHEALTH;
     }
 
     public void DamageDragon(float damage)
     {
         Health -= damage;
         Shake.shakeDuration = 1f;
-        Shake.shakeAmount = 0.5f;
+        Shake.shakeAmount = damage / 100;
         if (Health < 0)
         {
+            Health = 0;
             KillDragon();
         }
+
+        HealthBar.value = Health;
     }
 
     void KillDragon()
