@@ -3023,6 +3023,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChargePlayerAttack
   microphoneDetection: {fileID: 2027202010}
+  loudnessSensibility: 100
+  baseDamage: 5
+  maxDamage: 50
+  minDamage: 5
   AttackBar: 0
   numberOfPlayers: 0
   players:

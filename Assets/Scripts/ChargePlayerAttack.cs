@@ -9,7 +9,6 @@ public class ChargePlayerAttack : MonoBehaviour
 {
     [SerializeField] MicrophoneDetection microphoneDetection;
     public float loudnessSensibility = 100f;
-    public float threshold = 0.1f;
 
     public float baseDamage = 5f;
     public float maxDamage = 50f;
@@ -76,7 +75,6 @@ public class ChargePlayerAttack : MonoBehaviour
         {
             //check mic noise
             float noise = microphoneDetection.GetLoudnessFromMicrophone() * loudnessSensibility;
-            //if (noise < threshold){ noise = 0; }
             Debug.Log("you were: " + noise + " loud");
 
             //find loudest point
