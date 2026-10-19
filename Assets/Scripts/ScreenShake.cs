@@ -4,10 +4,16 @@ using System.Collections;
 public class ScreenShake : MonoBehaviour
 {
     //based on https://gist.github.com/ftvs/5822103
-
     // Transform of the camera to shake. Grabs the gameObject's transform
     // if null.
     public Transform camTransform;
+
+    // How long the object should shake for.
+    public float shakeDuration = 0f;
+
+    // Amplitude of the shake. A larger value shakes the camera harder.
+    public float shakeAmount = 0.7f;
+    public float decreaseFactor = 1.0f;
 
     Vector3 originalPos;
 
@@ -24,20 +30,18 @@ public class ScreenShake : MonoBehaviour
         originalPos = camTransform.localPosition;
     }
 
-    public IEnumerator Shake(float shakeDuration, float shakeAmount, float decreaseFactor)
+    void Update()
     {
-        float Duration = shakeDuration;
-        if (Duration > 0)
+        if (shakeDuration > 0)
         {
             camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
 
-            Duration -= decreaseFactor * Time.deltaTime;
+            shakeDuration -= Time.deltaTime * decreaseFactor;
         }
         else
         {
-            Duration = 0f;
+            shakeDuration = 0f;
             camTransform.localPosition = originalPos;
         }
-        yield return null;
     }
 }
