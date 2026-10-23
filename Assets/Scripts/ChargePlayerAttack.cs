@@ -9,7 +9,9 @@ public class ChargePlayerAttack : MonoBehaviour
 {
     [SerializeField] MicrophoneDetection microphoneDetection;
     public float loudnessSensibility = 100f;
+    public UnityEngine.UI.Slider MaxNoiseBar;
     public UnityEngine.UI.Slider NoiseBar;
+    public UnityEngine.UI.Slider DragonHealthBar;
 
     public float baseDamage = 5f;
     public float maxDamage = 50f;
@@ -23,6 +25,13 @@ public class ChargePlayerAttack : MonoBehaviour
     
 
     public DragonHealth dragon;
+
+    private void Start()
+    {
+        MaxNoiseBar.gameObject.SetActive(false);
+        NoiseBar.gameObject.SetActive(false);
+        DragonHealthBar.gameObject.SetActive(false);
+    }
 
     private void Update()
     {
@@ -68,7 +77,9 @@ public class ChargePlayerAttack : MonoBehaviour
         AttackBar = 0;
 
         //UI for strike martin
-        NoiseBar.enabled = true;
+        MaxNoiseBar.gameObject.SetActive(true);
+        NoiseBar.gameObject.SetActive(true);
+        DragonHealthBar.gameObject.SetActive(true);
         print("Strike Martin!!");
 
         //audio input
@@ -84,6 +95,7 @@ public class ChargePlayerAttack : MonoBehaviour
             if (noise > maxNoise)
             {
                 maxNoise = noise;
+                MaxNoiseBar.value = maxNoise;
             }
             yield return new WaitForSeconds(0.1f) ;
 
@@ -92,7 +104,8 @@ public class ChargePlayerAttack : MonoBehaviour
 
         //remove UI
         Debug.Log("stop striking, Martin");
-        NoiseBar.enabled = false;
+        MaxNoiseBar.gameObject.SetActive(false);
+        NoiseBar.gameObject.SetActive(false);
 
         float damage = baseDamage * maxNoise;
         if (damage > maxDamage) { damage = maxDamage; }

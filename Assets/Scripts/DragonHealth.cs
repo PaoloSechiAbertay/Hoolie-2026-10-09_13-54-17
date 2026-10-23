@@ -33,6 +33,14 @@ public class DragonHealth : MonoBehaviour
         }
 
         HealthBar.value = Health;
+
+        StartCoroutine(HealthBarFade());
+    }
+
+    IEnumerator HealthBarFade()
+    {
+        yield return new WaitForSeconds(5);
+        HealthBar.gameObject.SetActive(false);
     }
 
     void KillDragon()

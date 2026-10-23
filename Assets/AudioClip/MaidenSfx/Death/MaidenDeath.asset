@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-6700492593044464954
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Maiden Death5_{-6700492593044464954}
+  m_AudioClip: {fileID: 8300000, guid: b4a2ef53196ee8a42ad0ec1df723045e, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-3790946277738366998
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Maiden Death3_{-3790946277738366998}
+  m_AudioClip: {fileID: 8300000, guid: 2477fbd8eb84b3c418a67760a9e5a2fd, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-1750200267408374820
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Maiden Death2_{-1750200267408374820}
+  m_AudioClip: {fileID: 8300000, guid: 60313ab0d9609a248b807a241d9b8b71, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &907334983274928366
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Maiden Death1_{907334983274928366}
+  m_AudioClip: {fileID: 8300000, guid: 171dc02a69bf11a48aa95c179439d129, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &5007281397769192739
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Maiden Death4_{5007281397769192739}
+  m_AudioClip: {fileID: 8300000, guid: d6ddd361eaa0fe744ab5c2e1f0fd4a89, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MaidenDeath
+  m_Volume: 0
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: -5.776167, y: 0}
+  m_PitchRandomizationRange: {x: -51.985573, y: 95.306816}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: 907334983274928366}
+  - {fileID: -1750200267408374820}
+  - {fileID: -3790946277738366998}
+  - {fileID: 5007281397769192739}
+  - {fileID: -6700492593044464954}
+  m_AvoidRepeatingLast: 2
+  m_PlaybackMode: 2
+  m_TriggerMode: 0
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 1
+  m_PitchRandomizationEnabled: 1
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
