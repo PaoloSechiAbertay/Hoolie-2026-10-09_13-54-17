@@ -7,6 +7,7 @@ public class TailAttack : MonoBehaviour
     Rigidbody Rb;
     Coroutine clock;
     Coroutine attack;
+    AudioSource tailAudioSource;
 
 
     public FlashWarningDragonTail flashWarning;
@@ -24,7 +25,7 @@ public class TailAttack : MonoBehaviour
     {
         Rb = GetComponent<Rigidbody>();
         clock = StartCoroutine(Clock());
-        
+        tailAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -90,6 +91,9 @@ public class TailAttack : MonoBehaviour
 
         if (rotationCheck)
         {
+            tailAudioSource.PlayOneShot(tailAudioSource.clip);
+            Debug.Log("Tail Attack Sound Played");
+            
             if (Onleft)
             {
 

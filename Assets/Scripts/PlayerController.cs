@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     public bool jumpingcooldown = false;
     public float jumpforce = 8f;
 
+    public AudioSource maidenJumpAudioSource;
+    public AudioSource maidenDeathAudioSource;
+
     Material Mat;
     public Material ghostMat;
 
@@ -33,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         Rb = GetComponent<Rigidbody>();
         Renderer = GetComponent<MeshRenderer>();
+
         Mat = Renderer.material;
 
 
@@ -64,12 +68,12 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Jump()
     {
+        maidenJumpAudioSource.Play();
         UnDeathState();
 
         jumpingcooldown = true;
 
         Rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
-
         yield return new WaitForSeconds(1.5f);
 
         jumpingcooldown = false;
@@ -116,6 +120,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator GhostState(float time)
     {
+        maidenDeathAudioSource.Play();
         ghost = true;
         Renderer.material = ghostMat;
         healthBar.transform.localScale = new Vector3(healthBar.transform.localScale.x - 0.2f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
