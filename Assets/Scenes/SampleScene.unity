@@ -3214,52 +3214,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749988038}
   m_CullTransparentMesh: 1
---- !u!1 &1807609165
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1807609169}
-  - component: {fileID: 1807609166}
-  - component: {fileID: 1807609168}
-  m_Layer: 0
-  m_Name: Martin
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1807609166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807609165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4327307c6bac17c4b995fe164559a4bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChargePlayerAttack
-  microphoneDetection: {fileID: 2027202010}
-  loudnessSensibility: 100
-  MaxNoiseBar: {fileID: 1056474971}
-  NoiseBar: {fileID: 1168452108}
-  DragonHealthBar: {fileID: 956917953}
-  baseDamage: 5
-  maxDamage: 50
-  minDamage: 5
-  AttackBar: 0
-  numberOfPlayers: 0
-  players:
-  - {fileID: 1496463223}
-  - {fileID: 1231725734}
-  - {fileID: 1192469743}
-  - {fileID: 444545117}
-  dragon: {fileID: 1807609168}
 --- !u!4 &1807609167
 Transform:
   m_ObjectHideFlags: 0
@@ -3275,36 +3229,6 @@ Transform:
   m_Children:
   - {fileID: 1133946055}
   m_Father: {fileID: 956917952}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1807609168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807609165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3b9417509410c946ab84771e4a1a703, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DragonHealth
-  Health: 100
-  Shake: {fileID: 330585548}
-  HealthBar: {fileID: 956917953}
---- !u!4 &1807609169
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807609165}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1879664124
 GameObject:
@@ -4476,6 +4400,103 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb341c056dd584b4c94f7d422b0e0919, type: 3}
+--- !u!1001 &4827565821605960087
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2939356737043024271, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: m_Name
+      value: Martin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962647365487767265, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962647365487767265, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962647365487767265, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962647365487767265, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962647365487767265, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962647365487767265, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962647365487767265, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962647365487767265, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962647365487767265, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962647365487767265, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995913949339303328, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: NoiseBar
+      value: 
+      objectReference: {fileID: 1168452108}
+    - target: {fileID: 5995913949339303328, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: MaxNoiseBar
+      value: 
+      objectReference: {fileID: 1056474971}
+    - target: {fileID: 5995913949339303328, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: DragonHealthBar
+      value: 
+      objectReference: {fileID: 956917953}
+    - target: {fileID: 5995913949339303328, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: microphoneDetection
+      value: 
+      objectReference: {fileID: 2027202010}
+    - target: {fileID: 5995913949339303328, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: 'players.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1496463223}
+    - target: {fileID: 5995913949339303328, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: 'players.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1231725734}
+    - target: {fileID: 5995913949339303328, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: 'players.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1192469743}
+    - target: {fileID: 5995913949339303328, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: 'players.Array.data[3]'
+      value: 
+      objectReference: {fileID: 444545117}
+    - target: {fileID: 6422714483700618024, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: Shake
+      value: 
+      objectReference: {fileID: 330585548}
+    - target: {fileID: 6422714483700618024, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
+      propertyPath: HealthBar
+      value: 
+      objectReference: {fileID: 956917953}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b76d34c980c1fe4686b0af43c20b282, type: 3}
 --- !u!1001 &6085527033973657308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4643,7 +4664,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 229945053}
-  - {fileID: 1807609169}
+  - {fileID: 4827565821605960087}
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}

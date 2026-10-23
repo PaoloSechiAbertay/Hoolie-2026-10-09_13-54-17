@@ -12,9 +12,14 @@ public class DragonHealth : MonoBehaviour
     public ScreenShake Shake;
     public UnityEngine.UI.Slider HealthBar;
 
+    AudioSource dragonAudioSource;
+    public AudioClip dragonHurtSound;
+    public AudioClip dragonDeathSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        dragonAudioSource = GetComponent<AudioSource>();
+        
         Health = MAXHEALTH;
 
         HealthBar.maxValue = MAXHEALTH;
@@ -26,6 +31,9 @@ public class DragonHealth : MonoBehaviour
         Health -= damage;
         Shake.shakeDuration = 1f;
         Shake.shakeAmount = damage / 100;
+
+        dragonAudioSource.PlayOneShot(dragonHurtSound);
+
         if (Health < 0)
         {
             Health = 0;
@@ -45,6 +53,7 @@ public class DragonHealth : MonoBehaviour
 
     void KillDragon()
     {
+        dragonAudioSource.PlayOneShot(dragonDeathSound);
         Debug.Log("You defeated the dragon!!");
         //win game sequance
         Shake.shakeDuration = 1.5f;
