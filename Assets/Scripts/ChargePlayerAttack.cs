@@ -12,6 +12,7 @@ public class ChargePlayerAttack : MonoBehaviour
     public UnityEngine.UI.Slider MaxNoiseBar;
     public UnityEngine.UI.Slider NoiseBar;
     public UnityEngine.UI.Slider DragonHealthBar;
+    public UnityEngine.UI.Image StrikeMartinText;
 
     public float baseDamage = 5f;
     public float maxDamage = 50f;
@@ -31,6 +32,7 @@ public class ChargePlayerAttack : MonoBehaviour
         MaxNoiseBar.gameObject.SetActive(false);
         NoiseBar.gameObject.SetActive(false);
         DragonHealthBar.gameObject.SetActive(false);
+        StrikeMartinText.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -80,6 +82,7 @@ public class ChargePlayerAttack : MonoBehaviour
         MaxNoiseBar.gameObject.SetActive(true);
         NoiseBar.gameObject.SetActive(true);
         DragonHealthBar.gameObject.SetActive(true);
+        StrikeMartinText.gameObject.SetActive(true);
         print("Strike Martin!!");
 
         //audio input
@@ -106,6 +109,7 @@ public class ChargePlayerAttack : MonoBehaviour
         Debug.Log("stop striking, Martin");
         MaxNoiseBar.gameObject.SetActive(false);
         NoiseBar.gameObject.SetActive(false);
+        StrikeMartinText.gameObject.SetActive(false);
 
         float damage = baseDamage * maxNoise;
         if (damage > maxDamage) { damage = maxDamage; }
