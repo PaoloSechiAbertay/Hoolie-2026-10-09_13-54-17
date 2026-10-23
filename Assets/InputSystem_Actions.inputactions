@@ -1037,7 +1037,7 @@
                 {
                     "name": "",
                     "id": "117a83e2-b376-42bf-b2c1-1c4c088d9879",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -1048,7 +1048,7 @@
                 {
                     "name": "",
                     "id": "f832763b-7ddb-4afb-8fec-3cd64a62196b",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -1070,7 +1070,7 @@
                 {
                     "name": "",
                     "id": "3de3795a-ff01-47aa-8bf9-61fafe76348d",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -1092,7 +1092,7 @@
                 {
                     "name": "",
                     "id": "b732c166-9d29-4331-8782-c61ddaad219e",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
