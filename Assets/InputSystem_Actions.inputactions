@@ -1047,6 +1047,17 @@
                 },
                 {
                     "name": "",
+                    "id": "90396e64-e8a9-4c7e-824e-25e6fe85a965",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Button1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f832763b-7ddb-4afb-8fec-3cd64a62196b",
                     "path": "<Keyboard>/d",
                     "interactions": "",
@@ -1063,6 +1074,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "Button2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1565b4da-bd2a-4569-ad00-7531e2ef1889",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "Button2",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1091,6 +1113,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c5d79677-f1a1-4607-9f1c-f1bc4f5b0abb",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Button3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b732c166-9d29-4331-8782-c61ddaad219e",
                     "path": "<Keyboard>/g",
                     "interactions": "",
@@ -1107,6 +1140,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "Button4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68549204-a5d6-4e51-9299-4dc906bb3d8e",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "Button4",
                     "isComposite": false,
                     "isPartOfComposite": false
