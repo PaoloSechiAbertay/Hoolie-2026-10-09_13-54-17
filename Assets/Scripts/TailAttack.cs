@@ -8,6 +8,11 @@ public class TailAttack : MonoBehaviour
     Coroutine clock;
     Coroutine attack;
 
+    public GameObject tailTop;
+    public GameObject DragonRight;
+    public GameObject DragonLeft;
+    public GameObject DragonSitLeft;
+    public GameObject DragonSitRight;
 
     public FlashWarningDragonTail flashWarning;
 
@@ -58,6 +63,19 @@ public class TailAttack : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
+        if (Onleft)
+        {
+            DragonSitLeft.SetActive(true);
+            DragonLeft.SetActive(false);
+        }
+        else
+        {
+            DragonSitRight.SetActive(true);
+            DragonRight.SetActive(false);
+        }
+
+        tailTop.SetActive(true);
+
 
         if (Onleft)
         { 
@@ -68,6 +86,9 @@ public class TailAttack : MonoBehaviour
             Onleft = false;
             rotationCheck = false;  
             attacking = false;
+
+            DragonSitLeft.SetActive(false);
+            DragonRight.SetActive(true);
 
         }
         else
@@ -80,9 +101,12 @@ public class TailAttack : MonoBehaviour
             rotationCheck = false;
             attacking = false;
 
+            DragonSitRight.SetActive(false);
+            DragonLeft.SetActive(true);
         }
 
         attack = null;
+        tailTop.SetActive(false);
     }
 
     void tailRotation()
