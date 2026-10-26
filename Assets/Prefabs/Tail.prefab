@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8502714180130021053}
   m_Layer: 0
   m_Name: Tail
-  m_TagString: Attack
+  m_TagString: Tail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,6 +128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012375528edf19348996900d07f961a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TailAttack
+  tailTop: {fileID: 0}
+  DragonRight: {fileID: 0}
+  DragonLeft: {fileID: 0}
+  DragonSitLeft: {fileID: 0}
+  DragonSitRight: {fileID: 0}
   flashWarning: {fileID: 0}
   attacking: 0
   rotation: {x: 0, y: 0, z: 0}
@@ -381,6 +386,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012375528edf19348996900d07f961a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TailAttack
+  tailTop: {fileID: 0}
+  DragonRight: {fileID: 0}
+  DragonLeft: {fileID: 0}
+  DragonSitLeft: {fileID: 0}
+  DragonSitRight: {fileID: 0}
   flashWarning: {fileID: 0}
   attacking: 0
   rotation: {x: 0, y: 0, z: 0}

@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     InputAction Button;
     Rigidbody Rb;
-    MeshRenderer Renderer;
+    SpriteRenderer Renderer;
 
     Coroutine jump;
 
@@ -29,16 +29,17 @@ public class PlayerController : MonoBehaviour
     public AudioSource maidenJumpAudioSource;
     public AudioSource maidenDeathAudioSource;
 
-    Material Mat;
-    public Material ghostMat;
+    public Sprite MadienSprite;
+    //Material Mat;
+    //public Material GhostMat;
 
     void Start()
     {
         Rb = GetComponent<Rigidbody>();
-        Renderer = GetComponent<MeshRenderer>();
+        Renderer = GetComponentInChildren<SpriteRenderer>();
+        Renderer.sprite = MadienSprite;
 
-        Mat = Renderer.material;
-
+        //Mat = Renderer.material;
 
         Button = InputSystem.actions.FindAction("Button" + player_number);
 
@@ -82,10 +83,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Attack" && !ghost)
+        if (ghost)
+        {
+            return;
+        }
+        if (other.gameObject.tag == "Tail")
         {
             Damage();
         }
+        else if (other.gameObject.tag == "Attack")
+        {
+            Damage();
+            Destroy(other.gameObject);
+        }
+
     }
 
     void Damage()
@@ -122,12 +133,11 @@ public class PlayerController : MonoBehaviour
     {
         maidenDeathAudioSource.Play();
         ghost = true;
-        Renderer.material = ghostMat;
+        //Renderer.material = GhostMat;
         healthBar.transform.localScale = new Vector3(healthBar.transform.localScale.x - 0.2f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
 
         yield return new WaitForSeconds(time);
-
-        Renderer.material = Mat;
+        // Renderer.material = Mat;
         ghost = false;
     }
 
