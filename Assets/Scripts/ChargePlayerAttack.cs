@@ -12,7 +12,7 @@ public class ChargePlayerAttack : MonoBehaviour
     public UnityEngine.UI.Slider MaxNoiseBar;
     public UnityEngine.UI.Slider NoiseBar;
     public UnityEngine.UI.Slider DragonHealthBar;
-    public UnityEngine.UI.Image StrikeMartinText;
+    public GameObject StrikeMartinText;
 
     public float baseDamage = 5f;
     public float maxDamage = 50f;

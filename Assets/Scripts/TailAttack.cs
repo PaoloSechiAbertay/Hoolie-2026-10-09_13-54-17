@@ -62,8 +62,6 @@ public class TailAttack : MonoBehaviour
     {
         flashWarning.StartCoroutine(flashWarning.FlashWarning());
 
-        yield return new WaitForSeconds(2f);
-
         if (Onleft)
         {
             DragonSitLeft.SetActive(true);
@@ -74,6 +72,8 @@ public class TailAttack : MonoBehaviour
             DragonSitRight.SetActive(true);
             DragonRight.SetActive(false);
         }
+
+        yield return new WaitForSeconds(2f);
 
         tailTop.SetActive(true);
 
