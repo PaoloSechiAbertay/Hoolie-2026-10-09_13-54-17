@@ -13,6 +13,7 @@ public class ChargePlayerAttack : MonoBehaviour
     public UnityEngine.UI.Slider NoiseBar;
     public UnityEngine.UI.Slider DragonHealthBar;
     public GameObject StrikeMartinText;
+    public UnityEngine.UI.Image MicColour;
 
     public float baseDamage = 5f;
     public float maxDamage = 50f;
@@ -93,6 +94,9 @@ public class ChargePlayerAttack : MonoBehaviour
             float noise = microphoneDetection.GetLoudnessFromMicrophone() * loudnessSensibility;
             Debug.Log("you were: " + noise + " loud");
             NoiseBar.value = noise;
+
+            if (noise > 1f) { MicColour.enabled = true; }
+            else { MicColour.enabled = false; }
 
             //find loudest point
             if (noise > maxNoise)
