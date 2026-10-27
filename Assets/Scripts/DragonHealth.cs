@@ -37,7 +37,7 @@ public class DragonHealth : MonoBehaviour
         if (Health < 0)
         {
             Health = 0;
-            KillDragon();
+            StartCoroutine(KillDragon());
         }
 
         HealthBar.value = Health;
@@ -51,12 +51,15 @@ public class DragonHealth : MonoBehaviour
         HealthBar.gameObject.SetActive(false);
     }
 
-    void KillDragon()
+    IEnumerator KillDragon()
     {
         dragonAudioSource.PlayOneShot(dragonDeathSound);
         Debug.Log("You defeated the dragon!!");
         //win game sequance
         Shake.shakeDuration = 1.5f;
         Shake.shakeAmount = 1f;
+        yield return new WaitForSeconds(7f);
+        Application.Quit();
+
     }
 }
