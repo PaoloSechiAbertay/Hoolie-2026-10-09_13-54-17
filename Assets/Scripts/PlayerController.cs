@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     InputAction Button;
     Rigidbody Rb;
     SpriteRenderer Renderer;
+    public ScreenShake ScreenShake;
 
     Coroutine jump;
 
@@ -30,8 +32,8 @@ public class PlayerController : MonoBehaviour
     public AudioSource maidenDeathAudioSource;
 
     public Sprite MadienSprite;
-    //Material Mat;
-    //public Material GhostMat;
+    Material Mat;
+    public Material GhostMat;
 
     void Start()
     {
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour
         Renderer = GetComponentInChildren<SpriteRenderer>();
         Renderer.sprite = MadienSprite;
 
-        //Mat = Renderer.material;
+        Mat = Renderer.material;
 
         Button = InputSystem.actions.FindAction("Button" + player_number);
 
@@ -75,7 +77,13 @@ public class PlayerController : MonoBehaviour
         jumpingcooldown = true;
 
         Rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
+        for (float i = 0; i < 0.5f; i += Time.deltaTime)
+        {
+            Rb.AddForce(Vector3.down * 4f, ForceMode.Acceleration);
+            yield return null;
+        }
+
 
         jumpingcooldown = false;
         jump = null;
@@ -102,15 +110,17 @@ public class PlayerController : MonoBehaviour
     void Damage()
     {
         playerHealth -= 10;
-        Debug.Log(playerHealth);
+        //Debug.Log(playerHealth);
 
         StartCoroutine(GhostState(2f));
+        ScreenShake.SetScreenShake(0.05f, 0.05f);
 
         if (playerHealth <= 0)
         {
+            ScreenShake.SetScreenShake(0.1f, 0.1f);
             dead = true;
             Rb.linearVelocity = Vector3.zero;
-            transform.localPosition = new Vector3(transform.localPosition.x, 1, transform.localPosition.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, 2, transform.localPosition.z);
             StartCoroutine(TimeOut());
         }
 
@@ -119,7 +129,7 @@ public class PlayerController : MonoBehaviour
 
     void UnDeathState()
     {
-        if (transform.localPosition.y < 2)
+        if (transform.localPosition.y < 2.5f)
         {
             playing = true;
             dead = false;
@@ -133,11 +143,11 @@ public class PlayerController : MonoBehaviour
     {
         maidenDeathAudioSource.Play();
         ghost = true;
-        //Renderer.material = GhostMat;
+        Renderer.material = GhostMat;
         healthBar.transform.localScale = new Vector3(healthBar.transform.localScale.x - 0.2f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
 
         yield return new WaitForSeconds(time);
-        // Renderer.material = Mat;
+        Renderer.material = Mat;
         ghost = false;
     }
 

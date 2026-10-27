@@ -29,8 +29,7 @@ public class DragonHealth : MonoBehaviour
     public void DamageDragon(float damage)
     {
         Health -= damage;
-        Shake.shakeDuration = 1f;
-        Shake.shakeAmount = damage / 100;
+        Shake.SetScreenShake(damage / 100, 1f);
 
         dragonAudioSource.PlayOneShot(dragonHurtSound);
 
@@ -56,9 +55,10 @@ public class DragonHealth : MonoBehaviour
         dragonAudioSource.PlayOneShot(dragonDeathSound);
         Debug.Log("You defeated the dragon!!");
         //win game sequance
-        Shake.shakeDuration = 1.5f;
-        Shake.shakeAmount = 1f;
-        yield return new WaitForSeconds(7f);
+        Shake.SetScreenShake(1f, 1.5f);
+        yield return new WaitForSeconds(1.5f);
+        Shake.SetScreenShake(0.75f, 1.5f);
+        yield return new WaitForSeconds(5.5f);
         Application.Quit();
 
     }

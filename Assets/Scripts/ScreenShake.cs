@@ -12,7 +12,7 @@ public class ScreenShake : MonoBehaviour
     public float shakeDuration = 0f;
 
     // Amplitude of the shake. A larger value shakes the camera harder.
-    public float shakeAmount = 0.7f;
+    public float shakeAmount = 0f;
     public float decreaseFactor = 1.0f;
 
     Vector3 originalPos;
@@ -41,7 +41,20 @@ public class ScreenShake : MonoBehaviour
         else
         {
             shakeDuration = 0f;
+            shakeAmount = 0f;
             camTransform.localPosition = originalPos;
+        }
+    }
+
+    public void SetScreenShake(float newShakeAmount, float newShakeDuration)
+    {
+        if (newShakeAmount >= shakeAmount)
+        {
+            shakeAmount = newShakeAmount;
+            if (newShakeDuration > shakeDuration) 
+            {
+                shakeDuration = newShakeDuration; 
+            }
         }
     }
 }
