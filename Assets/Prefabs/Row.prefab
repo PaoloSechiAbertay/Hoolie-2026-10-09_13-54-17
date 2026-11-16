@@ -159,3 +159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireballSpawner
   fireball: {fileID: 3905633178916407106, guid: 38bc1a58eaabe6e45b7b4f9297b7d96f, type: 3}
+  fireballHigh: {fileID: 3905633178916407106, guid: 7a724bd4ebe787f42be01aea2a4b0f8a, type: 3}
+  player: {fileID: 0}
+  attack: {fileID: 0}

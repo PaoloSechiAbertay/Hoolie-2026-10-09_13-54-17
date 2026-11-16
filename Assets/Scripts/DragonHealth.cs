@@ -41,7 +41,7 @@ public class DragonHealth : MonoBehaviour
 
         HealthBar.value = Health;
 
-        StartCoroutine(HealthBarFade());
+        //StartCoroutine(HealthBarFade());
     }
 
     IEnumerator HealthBarFade()

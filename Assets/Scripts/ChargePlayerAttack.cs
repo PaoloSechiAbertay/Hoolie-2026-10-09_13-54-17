@@ -32,7 +32,7 @@ public class ChargePlayerAttack : MonoBehaviour
     {
         MaxNoiseBar.gameObject.SetActive(false);
         NoiseBar.gameObject.SetActive(false);
-        DragonHealthBar.gameObject.SetActive(false);
+        //DragonHealthBar.gameObject.SetActive(false);
         StrikeMartinText.gameObject.SetActive(false);
     }
 
@@ -82,7 +82,7 @@ public class ChargePlayerAttack : MonoBehaviour
         //UI for strike martin
         MaxNoiseBar.gameObject.SetActive(true);
         NoiseBar.gameObject.SetActive(true);
-        DragonHealthBar.gameObject.SetActive(true);
+        //DragonHealthBar.gameObject.SetActive(true);
         StrikeMartinText.gameObject.SetActive(true);
         print("Strike Martin!!");
 

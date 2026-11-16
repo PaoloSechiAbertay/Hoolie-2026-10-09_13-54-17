@@ -76,6 +76,11 @@ public class PlayerController : MonoBehaviour
 
         jumpingcooldown = true;
 
+        if (Random.Range(0, 15) == 0)
+        {
+            StartCoroutine(Spin());
+        }
+
         Rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
         yield return new WaitForSeconds(0.5f);
         for (float i = 0; i < 0.5f; i += Time.deltaTime)
@@ -87,6 +92,17 @@ public class PlayerController : MonoBehaviour
 
         jumpingcooldown = false;
         jump = null;
+    }
+
+    IEnumerator Spin()
+    {
+        yield return new WaitForSeconds(0.2f);
+        for (float f = 0; f < 0.5f; f += Time.deltaTime)
+        {
+            transform.Rotate(new Vector3(0, 0, 720) * Time.deltaTime);
+            yield return null;
+        }
+        transform.rotation = Quaternion.identity;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -166,5 +182,6 @@ public class PlayerController : MonoBehaviour
         }
         playing = false;
     }
+
 
 }

@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class FireballSpawner : MonoBehaviour
 {
-    public GameObject fireball; 
+    public GameObject fireball;
+    public GameObject fireballHigh;
     public PlayerController player;
     public TailAttack attack;
 
@@ -26,7 +27,7 @@ public class FireballSpawner : MonoBehaviour
             if (!player.ghost && !player.dead && !attack.attacking)
             {
                 Spawn();
-                yield return new WaitForSeconds(Random.Range(2f, 4f));
+                yield return new WaitForSeconds(Random.Range(1f, 2f));
             }
             yield return null;
         }
@@ -34,15 +35,15 @@ public class FireballSpawner : MonoBehaviour
 
     void Spawn()
     {
-        int spawnpoint = Random.Range(0, 3);
+        int spawnpoint = Random.Range(0, 4);
 
-        if (spawnpoint == 1)
+        if (spawnpoint <= 2)
         {
-            Instantiate(fireball, new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), Quaternion.identity);
+            Instantiate(fireball, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         }
         else
         {
-            Instantiate(fireball, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            Instantiate(fireballHigh, new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), Quaternion.identity);
         }
     }
 }
