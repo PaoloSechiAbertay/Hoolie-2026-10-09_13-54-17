@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource maidenJumpAudioSource;
     public AudioSource maidenDeathAudioSource;
+    public AudioSource maidenTwirlAudioSource;
 
     public Sprite MadienSprite;
     Material Mat;
@@ -81,14 +82,17 @@ public class PlayerController : MonoBehaviour
         int rand = Random.Range(0, 40);
         if (rand == 0)
         {
+            maidenTwirlAudioSource.Play();
             StartCoroutine(Spin(new Vector3 (0, 0, 720)));
         }
         else if (rand == 1)
         {
+            maidenTwirlAudioSource.Play();
             StartCoroutine(Spin(new Vector3(0, 720, 0)));
         }
         else if (rand == 2)
         {
+            maidenTwirlAudioSource.Play();
             StartCoroutine(Spin(new Vector3(720, 0, 0)));
         }
 

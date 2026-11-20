@@ -39,6 +39,8 @@ public class ChargePlayerAttack : MonoBehaviour
     public bool Striking = false;
     public TailAttack tail;
 
+    public AudioSource StrikeWarningAudioSource; // source for strike martin warning sound
+
     private void Start()
     {
         MaxNoiseBar.gameObject.SetActive(false);
@@ -109,6 +111,9 @@ public class ChargePlayerAttack : MonoBehaviour
         NoiseBar.gameObject.SetActive(true);
         StrikeMartinText.gameObject.SetActive(true);
 
+        //play warning sound
+        StrikeWarningAudioSource.Play();
+        Debug.Log("Strike Martin Warning Sound Played");
 
         //audio input
         float maxNoise = 0;
