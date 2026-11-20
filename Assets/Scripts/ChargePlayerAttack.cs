@@ -13,6 +13,7 @@ public class ChargePlayerAttack : MonoBehaviour
     public UnityEngine.UI.Slider MaxNoiseBar;
     public UnityEngine.UI.Slider NoiseBar;
     public UnityEngine.UI.Slider DragonHealthBar;
+    public UnityEngine.UI.Slider MartinChargingBar;
     public GameObject StrikeMartinText;
     //public UnityEngine.UI.Image MicColour;
 
@@ -46,6 +47,7 @@ public class ChargePlayerAttack : MonoBehaviour
         NoiseBar.gameObject.SetActive(false);
         StrikeMartinText.gameObject.SetActive(false);
         MartinSprite.SetActive(false);
+        MartinChargingBar.gameObject.SetActive(true);
 
 
         numbers = InputSystem.actions.FindActionMap("Numbers");
@@ -53,6 +55,7 @@ public class ChargePlayerAttack : MonoBehaviour
 
     private void Update()
     {
+        MartinChargingBar.value = AttackBar;
 
         updateSettings();
 
@@ -98,12 +101,14 @@ public class ChargePlayerAttack : MonoBehaviour
         AttackBar = 0;
         Striking = true;
 
+        MartinChargingBar.gameObject.SetActive(false);
+        MartinSprite.SetActive(true);
+
         yield return new WaitForSeconds(1.2f);
 
         //UI for strike martin
         MaxNoiseBar.gameObject.SetActive(true);
         NoiseBar.gameObject.SetActive(true);
-        MartinSprite.SetActive(true);
         StrikeMartinText.gameObject.SetActive(true);
 
         //play warning sound
@@ -133,10 +138,12 @@ public class ChargePlayerAttack : MonoBehaviour
         if (maxNoise >= 10) { noiseDampeningSetting += 1; }
 
         //remove UI
+        MaxNoiseBar.value = 0;
         MaxNoiseBar.gameObject.SetActive(false);
         NoiseBar.gameObject.SetActive(false);
         StrikeMartinText.gameObject.SetActive(false);
         MartinSprite.SetActive(false);
+        MartinChargingBar.gameObject.SetActive(true);
 
         float damage = baseDamage * maxNoise;
         if (damage > maxDamage) { damage = maxDamage; }

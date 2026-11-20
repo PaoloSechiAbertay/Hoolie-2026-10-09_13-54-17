@@ -97,7 +97,7 @@ public class TailAttack : MonoBehaviour
             rotationCheck = true;
 
             yield return new WaitForSeconds(1.8f);
-            transform.rotation = Quaternion.Euler(transform.rotation.x,90, transform.rotation.z);
+            transform.rotation = Quaternion.Euler(transform.rotation.x, 90, transform.rotation.z);
             Onleft = true;
             rotationCheck = false;
             attacking = false;
