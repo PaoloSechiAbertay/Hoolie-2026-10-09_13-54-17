@@ -5,10 +5,19 @@ public class FlashWarningDragonTail : MonoBehaviour
 {
     public GameObject warningText;
 
+    private AudioSource warningAudioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if(warningAudioSource == null)
+        {
+            warningAudioSource = GetComponent<AudioSource>();
+        }
+        else
+        {
+            Debug.LogWarning("Warning Audio Source not found.");
+        }
     }
 
     // Update is called once per frame
@@ -19,6 +28,7 @@ public class FlashWarningDragonTail : MonoBehaviour
 
     public IEnumerator FlashWarning()
     {
+        warningAudioSource.Play();
         for (int i = 0; i < 3; i++)
         {
             warningText.SetActive(true);
