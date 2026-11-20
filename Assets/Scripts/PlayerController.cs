@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     InputAction Button;
     Rigidbody Rb;
     SpriteRenderer Renderer;
+    public SpriteRenderer backRenderer;
     public ScreenShake ScreenShake;
 
     Coroutine jump;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
         Rb = GetComponent<Rigidbody>();
         Renderer = GetComponentInChildren<SpriteRenderer>();
         Renderer.sprite = MadienSprite;
+        backRenderer.sprite = MadienSprite;
 
         Mat = Renderer.material;
 
@@ -76,9 +78,18 @@ public class PlayerController : MonoBehaviour
 
         jumpingcooldown = true;
 
-        if (Random.Range(0, 15) == 0)
+        int rand = Random.Range(0, 40);
+        if (rand == 0)
         {
-            StartCoroutine(Spin());
+            StartCoroutine(Spin(new Vector3 (0, 0, 720)));
+        }
+        else if (rand == 1)
+        {
+            StartCoroutine(Spin(new Vector3(0, 720, 0)));
+        }
+        else if (rand == 2)
+        {
+            StartCoroutine(Spin(new Vector3(720, 0, 0)));
         }
 
         Rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
@@ -94,12 +105,17 @@ public class PlayerController : MonoBehaviour
         jump = null;
     }
 
-    IEnumerator Spin()
+    IEnumerator Spin(Vector3 spinAxis)
     {
+        if (Random.Range(-1, 1) == -1) ;
+        {
+            spinAxis = (spinAxis * -1);
+        }
+
         yield return new WaitForSeconds(0.2f);
         for (float f = 0; f < 0.5f; f += Time.deltaTime)
         {
-            transform.Rotate(new Vector3(0, 0, 720) * Time.deltaTime);
+            transform.Rotate(spinAxis * Time.deltaTime);
             yield return null;
         }
         transform.rotation = Quaternion.identity;
