@@ -15,6 +15,9 @@ public class ChargePlayerAttack : MonoBehaviour
     public GameObject StrikeMartinText;
     public UnityEngine.UI.Image MicColour;
 
+    public float sensitivitySetting = 1;
+    public float noiseDampeningSetting = 0;
+
     public float baseDamage = 5f;
     public float maxDamage = 50f;
     public float minDamage = 5f;
@@ -82,6 +85,7 @@ public class ChargePlayerAttack : MonoBehaviour
         //UI for strike martin
         MaxNoiseBar.gameObject.SetActive(true);
         NoiseBar.gameObject.SetActive(true);
+
         //DragonHealthBar.gameObject.SetActive(true);
         StrikeMartinText.gameObject.SetActive(true);
         print("Strike Martin!!");
@@ -91,10 +95,9 @@ public class ChargePlayerAttack : MonoBehaviour
         for (int i = 0; i < 50; i++)
         {
             //check mic noise
-            float noise = microphoneDetection.GetLoudnessFromMicrophone() * loudnessSensibility;
-            Debug.Log("you were: " + noise + " loud");
-            NoiseBar.value = noise;
+            float noise = (microphoneDetection.GetLoudnessFromMicrophone() * loudnessSensibility * sensitivitySetting) - noiseDampeningSetting;
 
+            NoiseBar.value = noise;
             if (noise > 1f) { MicColour.enabled = true; }
             else { MicColour.enabled = false; }
 
@@ -107,8 +110,7 @@ public class ChargePlayerAttack : MonoBehaviour
             yield return new WaitForSeconds(0.1f) ;
 
         }
-        Debug.Log("the loudest you were was: " + maxNoise + " loud");
-
+       
         //remove UI
         Debug.Log("stop striking, Martin");
         MaxNoiseBar.gameObject.SetActive(false);

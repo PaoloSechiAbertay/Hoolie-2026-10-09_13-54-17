@@ -4646,7 +4646,7 @@ PrefabInstance:
     - target: {fileID: 7464295806423012681, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
       propertyPath: MadienSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0bb72a90ac9ee3442b89e862668fb422, type: 3}
+      objectReference: {fileID: -239745499, guid: bc7202de18a57b64f9b068edda7a4011, type: 3}
     - target: {fileID: 7464295806423012681, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
       propertyPath: player_number
       value: 4
@@ -5805,6 +5805,10 @@ PrefabInstance:
       propertyPath: ScreenShake
       value: 
       objectReference: {fileID: 330585548}
+    - target: {fileID: 7464295806423012681, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
+      propertyPath: MadienSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d6a336b2552f1149a684b5ecb6aadd7, type: 3}
     - target: {fileID: 8479586864905758624, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
       propertyPath: m_Mass
       value: 10
