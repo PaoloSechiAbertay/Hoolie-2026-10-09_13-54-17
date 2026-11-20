@@ -6,7 +6,7 @@ public class TailAttack : MonoBehaviour
 {
     Rigidbody Rb;
     Coroutine clock;
-    Coroutine attack;
+    public Coroutine attack;
     AudioSource tailAudioSource;
 
     public GameObject tailTop;

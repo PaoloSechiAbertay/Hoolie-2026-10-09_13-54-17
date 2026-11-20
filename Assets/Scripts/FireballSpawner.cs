@@ -7,6 +7,7 @@ public class FireballSpawner : MonoBehaviour
     public GameObject fireballHigh;
     public PlayerController player;
     public TailAttack attack;
+    public ChargePlayerAttack Martin;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +25,7 @@ public class FireballSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (!player.ghost && !player.dead && !attack.attacking)
+            if (!player.ghost && !player.dead && !attack.attacking && !Martin.Striking)
             {
                 Spawn();
                 yield return new WaitForSeconds(Random.Range(1f, 2f));

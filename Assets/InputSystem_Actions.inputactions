@@ -1263,6 +1263,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LShift",
+                    "type": "Button",
+                    "id": "c4f7fe8f-1f32-46fc-aaa1-c7053be31232",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RShift",
+                    "type": "Button",
+                    "id": "7cd3b435-289b-43b3-a0f7-2826fa3b2f4d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1483,6 +1501,28 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Zero",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01ab5780-c314-4ee0-b719-be637e60d071",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LShift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e88607cc-b9ca-4708-8b7f-12ac311790c0",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RShift",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
