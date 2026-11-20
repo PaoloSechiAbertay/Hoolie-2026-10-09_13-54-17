@@ -117,9 +117,10 @@ public class ChargePlayerAttack : MonoBehaviour
                 MaxNoiseBar.value = maxNoise;
             }
             yield return new WaitForSeconds(0.1f) ;
-
         }
-       
+
+        if (maxNoise >= 10) { noiseDampeningSetting += 1; }
+
         //remove UI
         Debug.Log("stop striking, Martin");
         MaxNoiseBar.gameObject.SetActive(false);
@@ -161,8 +162,5 @@ public class ChargePlayerAttack : MonoBehaviour
         else if(numbers.FindAction("7").WasPressedThisFrame()) { noiseDampeningSetting = 7; }
         else if(numbers.FindAction("8").WasPressedThisFrame()) { noiseDampeningSetting = 8; }
         else if(numbers.FindAction("9").WasPressedThisFrame()) { noiseDampeningSetting = 9; }
-
-        print(sensitivitySetting);
-        print(noiseDampeningSetting);
     }
 }
