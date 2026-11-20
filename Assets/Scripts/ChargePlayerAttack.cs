@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
@@ -31,16 +32,24 @@ public class ChargePlayerAttack : MonoBehaviour
 
     public DragonHealth dragon;
 
+    InputActionMap numbers;
+
     private void Start()
     {
         MaxNoiseBar.gameObject.SetActive(false);
         NoiseBar.gameObject.SetActive(false);
         //DragonHealthBar.gameObject.SetActive(false);
         StrikeMartinText.gameObject.SetActive(false);
+
+
+        numbers = InputSystem.actions.FindActionMap("Numbers");
     }
 
     private void Update()
     {
+
+        updateSettings();
+
         if (AttackBar >= maxCharge)
         {
             StartCoroutine(StrikeMartin());
@@ -95,7 +104,7 @@ public class ChargePlayerAttack : MonoBehaviour
         for (int i = 0; i < 50; i++)
         {
             //check mic noise
-            float noise = (microphoneDetection.GetLoudnessFromMicrophone() * loudnessSensibility * sensitivitySetting) - noiseDampeningSetting;
+            float noise = (microphoneDetection.GetLoudnessFromMicrophone() * loudnessSensibility * (1 / sensitivitySetting)) - noiseDampeningSetting;
 
             NoiseBar.value = noise;
             if (noise > 1f) { MicColour.enabled = true; }
@@ -125,5 +134,35 @@ public class ChargePlayerAttack : MonoBehaviour
         dragon.DamageDragon(damage);
 
         charging = true;
+    }
+
+
+    void updateSettings()
+    {
+
+        if (numbers.FindAction("One").WasPressedThisFrame()) { sensitivitySetting = 1; }
+        else if (numbers.FindAction("Two").WasPressedThisFrame()) { sensitivitySetting = 2; }
+        else if (numbers.FindAction("Three").WasPressedThisFrame()) { sensitivitySetting = 3; }
+        else if (numbers.FindAction("Four").WasPressedThisFrame()) { sensitivitySetting = 4; }
+        else if (numbers.FindAction("Five").WasPressedThisFrame()) { sensitivitySetting = 5; }
+        else if (numbers.FindAction("Six").WasPressedThisFrame()) { sensitivitySetting = 6; }
+        else if (numbers.FindAction("Seven").WasPressedThisFrame()) { sensitivitySetting = 7; }
+        else if (numbers.FindAction("Eight").WasPressedThisFrame()) { sensitivitySetting = 8; }
+        else if (numbers.FindAction("Nine").WasPressedThisFrame()) { sensitivitySetting = 9; }
+        else if (numbers.FindAction("Zero").WasPressedThisFrame()) { sensitivitySetting = 10; }
+
+        if (numbers.FindAction("0").WasPressedThisFrame()) { noiseDampeningSetting = 0; }
+        else if(numbers.FindAction("1").WasPressedThisFrame()) { noiseDampeningSetting = 1; }
+        else if(numbers.FindAction("2").WasPressedThisFrame()) { noiseDampeningSetting = 2; }
+        else if(numbers.FindAction("3").WasPressedThisFrame()) { noiseDampeningSetting = 3; }
+        else if(numbers.FindAction("4").WasPressedThisFrame()) { noiseDampeningSetting = 4; }
+        else if(numbers.FindAction("5").WasPressedThisFrame()) { noiseDampeningSetting = 5; }
+        else if(numbers.FindAction("6").WasPressedThisFrame()) { noiseDampeningSetting = 6; }
+        else if(numbers.FindAction("7").WasPressedThisFrame()) { noiseDampeningSetting = 7; }
+        else if(numbers.FindAction("8").WasPressedThisFrame()) { noiseDampeningSetting = 8; }
+        else if(numbers.FindAction("9").WasPressedThisFrame()) { noiseDampeningSetting = 9; }
+
+        print(sensitivitySetting);
+        print(noiseDampeningSetting);
     }
 }
