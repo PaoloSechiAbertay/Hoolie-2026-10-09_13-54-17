@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     Material Mat;
     public Material GhostMat;
 
+    public Vector3 attackTarget;
+    public float attackSpeed;
+
     void Start()
     {
         Rb = GetComponent<Rigidbody>();
@@ -203,5 +206,38 @@ public class PlayerController : MonoBehaviour
         playing = false;
     }
 
+    IEnumerator Attack()
+    {
+        Vector3 home = transform.position;
 
+        jumpingcooldown = true;
+
+        //rotate towards dragon
+        for (float i = 0; i < 0.25; i += Time.deltaTime)
+        {
+            transform.Rotate(new Vector3(1, 0, 0), 45 * Time.deltaTime * 4); //45 degrees of rotation, time since last frame * 4 because we want it done in a quarter of a second
+            yield return null;
+        }
+
+        //attack
+        for (float i = 0; i < 1; i += Time.deltaTime)
+        {
+            Vector3.MoveTowards(transform.position, attackTarget, Time.deltaTime * attackSpeed);
+            yield return null;
+        }
+
+        //reset
+        for (float i = 0; i < 1; i += Time.deltaTime)
+        {
+            Vector3.MoveTowards(transform.position, home, Time.deltaTime * attackSpeed);
+            yield return null;
+        }
+        transform.position = home;
+        for (float i = 0; i < 0.25; i += Time.deltaTime)
+        {
+            transform.Rotate(new Vector3(-1, 0, 0), 45 * Time.deltaTime * 4);
+            yield return null;
+        }
+        transform.rotation = Quaternion.identity;
+    }
 }
