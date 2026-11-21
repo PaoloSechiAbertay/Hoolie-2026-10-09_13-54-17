@@ -31,7 +31,7 @@ public class DragonHealth : MonoBehaviour
         HealthBar.value = MAXHEALTH;
     }
 
-    public void DamageDragon(float damage)
+    public bool DamageDragon(float damage)
     {
         Health -= damage;
         Shake.SetScreenShake(damage / 100, 1f);
@@ -42,11 +42,13 @@ public class DragonHealth : MonoBehaviour
         {
             Health = 0;
             StartCoroutine(KillDragon());
+            return true;
         }
 
         HealthBar.value = Health;
 
         //StartCoroutine(HealthBarFade());
+        return false;
     }
 
     IEnumerator HealthBarFade()

@@ -137,24 +137,39 @@ public class ChargePlayerAttack : MonoBehaviour
 
         if (maxNoise >= 10) { noiseDampeningSetting += 1; }
 
-        //remove UI
+        //remove most UI
         MaxNoiseBar.value = 0;
         MaxNoiseBar.gameObject.SetActive(false);
         NoiseBar.gameObject.SetActive(false);
         StrikeMartinText.gameObject.SetActive(false);
-        MartinSprite.SetActive(false);
-        MartinChargingBar.gameObject.SetActive(true);
 
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (!players[i].ghost)
+            {
+                StartCoroutine(players[i].Attack());
+            }
+        }
+        StartCoroutine(MartinSprite.GetComponent<MartinSpriteAttack>().Attack());
+        yield return new WaitForSeconds(0.6f);
+
+        //deal damage based on loudest noise in time
         float damage = baseDamage * maxNoise;
         if (damage > maxDamage) { damage = maxDamage; }
         if (damage < minDamage) { damage = minDamage; }
 
-        //deal damage based on loudest noise in time
-        dragon.DamageDragon(damage);
+        if (!dragon.DamageDragon(damage)) // if dragon isn't dead
+        {
+            yield return new WaitForSeconds(1f);
 
-        charging = true;
-        Striking = false;
-        tail.attack = null;
+            //remove martin & reset variables
+            MartinSprite.SetActive(false);
+            MartinChargingBar.gameObject.SetActive(true);
+            charging = true;
+            Striking = false;
+            tail.attack = null;
+        }
+
     }
 
 

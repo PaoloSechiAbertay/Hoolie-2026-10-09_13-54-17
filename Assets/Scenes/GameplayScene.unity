@@ -2393,6 +2393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 908692639}
   - component: {fileID: 908692638}
+  - component: {fileID: 908692640}
   m_Layer: 0
   m_Name: MartinSprite
   m_TagString: Untagged
@@ -2475,6 +2476,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &908692640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908692637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e45186986736841b0fcaa18a82a43c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MartinSpriteAttack
+  attackTarget: {x: 0, y: 5.51, z: 13.12}
 --- !u!1 &910588707
 GameObject:
   m_ObjectHideFlags: 0
@@ -4998,6 +5012,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749988038}
   m_CullTransparentMesh: 1
+--- !u!1 &1761881113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1761881114}
+  m_Layer: 0
+  m_Name: AttackTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1761881114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761881113}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.51, z: 13.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1768029396
 GameObject:
   m_ObjectHideFlags: 0
@@ -5412,6 +5457,14 @@ PrefabInstance:
       propertyPath: player_number
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7464295806423012681, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
+      propertyPath: attackTarget.y
+      value: 5.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464295806423012681, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
+      propertyPath: attackTarget.z
+      value: 13.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5624,6 +5677,14 @@ PrefabInstance:
     - target: {fileID: 7464295806423012681, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
       propertyPath: player_number
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464295806423012681, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
+      propertyPath: attackTarget.y
+      value: 5.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464295806423012681, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
+      propertyPath: attackTarget.z
+      value: 13.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6129,6 +6190,14 @@ PrefabInstance:
       propertyPath: player_number
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7464295806423012681, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
+      propertyPath: attackTarget.y
+      value: 5.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464295806423012681, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
+      propertyPath: attackTarget.z
+      value: 13.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6555,6 +6624,14 @@ PrefabInstance:
       propertyPath: MadienSprite
       value: 
       objectReference: {fileID: 21300000, guid: 4d6a336b2552f1149a684b5ecb6aadd7, type: 3}
+    - target: {fileID: 7464295806423012681, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
+      propertyPath: attackTarget.y
+      value: 5.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464295806423012681, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
+      propertyPath: attackTarget.z
+      value: 13.12
+      objectReference: {fileID: 0}
     - target: {fileID: 8479586864905758624, guid: 795cc417204c9534391d5a526693ab8f, type: 3}
       propertyPath: m_Mass
       value: 10
@@ -6673,6 +6750,7 @@ SceneRoots:
   - {fileID: 1288939430}
   - {fileID: 2027202011}
   - {fileID: 724911219}
+  - {fileID: 1761881114}
   - {fileID: 908692639}
   - {fileID: 887764280}
   - {fileID: 1382793702}

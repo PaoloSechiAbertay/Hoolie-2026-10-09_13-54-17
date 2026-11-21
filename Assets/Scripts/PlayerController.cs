@@ -37,11 +37,14 @@ public class PlayerController : MonoBehaviour
     Material Mat;
     public Material GhostMat;
 
+    Vector3 Home;
     public Vector3 attackTarget;
-    public float attackSpeed;
+    float attackSpeed = 20;
 
     void Start()
     {
+        Home = transform.position;
+
         Rb = GetComponent<Rigidbody>();
         Renderer = GetComponentInChildren<SpriteRenderer>();
         Renderer.sprite = MadienSprite;
@@ -206,38 +209,40 @@ public class PlayerController : MonoBehaviour
         playing = false;
     }
 
-    IEnumerator Attack()
+    public IEnumerator Attack()
     {
-        Vector3 home = transform.position;
-
         jumpingcooldown = true;
+        Rb.constraints = RigidbodyConstraints.FreezeAll;
 
         //rotate towards dragon
-        for (float i = 0; i < 0.25; i += Time.deltaTime)
+        for (float i = 0; i < 0.1; i += Time.deltaTime)
         {
-            transform.Rotate(new Vector3(1, 0, 0), 45 * Time.deltaTime * 4); //45 degrees of rotation, time since last frame * 4 because we want it done in a quarter of a second
+            transform.Rotate(new Vector3(1, 0, 0), 45 * Time.deltaTime * 10); //45 degrees of rotation, time since last frame * 10 because we want it done in a tenth of a second
             yield return null;
         }
 
         //attack
-        for (float i = 0; i < 1; i += Time.deltaTime)
+        for (float i = 0; i < 0.5; i += Time.deltaTime)
         {
-            Vector3.MoveTowards(transform.position, attackTarget, Time.deltaTime * attackSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, attackTarget, Time.deltaTime * attackSpeed);
             yield return null;
         }
 
         //reset
-        for (float i = 0; i < 1; i += Time.deltaTime)
+        for (float i = 0; i < 0.5; i += Time.deltaTime)
         {
-            Vector3.MoveTowards(transform.position, home, Time.deltaTime * attackSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, Home, Time.deltaTime * attackSpeed);
             yield return null;
         }
-        transform.position = home;
-        for (float i = 0; i < 0.25; i += Time.deltaTime)
+        transform.position = Home;
+        for (float i = 0; i < 0.1; i += Time.deltaTime)
         {
-            transform.Rotate(new Vector3(-1, 0, 0), 45 * Time.deltaTime * 4);
+            transform.Rotate(new Vector3(-1, 0, 0), 45 * Time.deltaTime * 10);
             yield return null;
         }
         transform.rotation = Quaternion.identity;
+
+        jumpingcooldown = false;
+        Rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
 }
