@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class EscapeTheGame : MonoBehaviour
 {
@@ -10,8 +11,7 @@ public class EscapeTheGame : MonoBehaviour
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            Debug.Log("Escape key pressed. Quitting the game.");
-            Application.Quit();
+            SceneManager.LoadScene("MainMenuScene");
         }
     }
 }

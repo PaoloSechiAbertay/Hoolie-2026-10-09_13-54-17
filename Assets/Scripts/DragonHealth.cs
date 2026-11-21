@@ -1,6 +1,8 @@
 using System.Collections;
+using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
@@ -15,6 +17,9 @@ public class DragonHealth : MonoBehaviour
     AudioSource dragonAudioSource;
     public AudioClip dragonHurtSound;
     public AudioClip dragonDeathSound;
+
+    public GameObject[] attacks = new GameObject[5];
+    public GameObject dragonSprites;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -52,14 +57,28 @@ public class DragonHealth : MonoBehaviour
 
     IEnumerator KillDragon()
     {
+        //destroy attacks
+        for (int i = 0; i < attacks.Length; i++)
+        {
+            Destroy(attacks[i]);
+        }
+
+        //win game sequance start
         dragonAudioSource.PlayOneShot(dragonDeathSound);
-        Debug.Log("You defeated the dragon!!");
-        //win game sequance
         Shake.SetScreenShake(1f, 1.5f);
         yield return new WaitForSeconds(1.5f);
-        Shake.SetScreenShake(0.75f, 1.5f);
-        yield return new WaitForSeconds(5.5f);
-        Application.Quit();
 
+        //dragon collapse
+        for (float i = 0; i < 0.5; i += Time.deltaTime)
+        {
+            dragonSprites.transform.Rotate(new Vector3(-1, 0, 0), 90 * Time.deltaTime * 2);
+            yield return null;
+        }
+        Shake.SetScreenShake(0.75f, 1.5f);
+
+        //wait for end of cheering SFX
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("WinScene");
     }
+
 }
