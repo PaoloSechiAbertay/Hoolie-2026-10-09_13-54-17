@@ -132,7 +132,7 @@ public class ChargePlayerAttack : MonoBehaviour
 
         for (int i = 0; i < players.Length; i++)
         {
-            if (!players[i].ghost)
+            if (!players[i].dead)
             {
                 StartCoroutine(players[i].Attack());
             }
