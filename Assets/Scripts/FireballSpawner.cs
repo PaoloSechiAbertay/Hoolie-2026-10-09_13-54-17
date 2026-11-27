@@ -12,13 +12,19 @@ public class FireballSpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        StartCoroutine(Clock());
+        StartCoroutine(StartClock());
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    IEnumerator StartClock()
+    {
+        yield return new WaitForSeconds(Random.Range(1f, 2f));
+        StartCoroutine(Clock());
     }
 
     IEnumerator Clock()
