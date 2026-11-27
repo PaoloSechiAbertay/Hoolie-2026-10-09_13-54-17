@@ -38,25 +38,54 @@ public class MicSettingsManager : MonoBehaviour
         if (numbers.FindAction("LShift").IsPressed())
         {
             if (numbers.FindAction("One").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 1; }
-            else if (numbers.FindAction("Two").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 2; }
-            else if (numbers.FindAction("Three").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 3; }
-            else if (numbers.FindAction("Four").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 4; }
-            else if (numbers.FindAction("Five").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 5; }
-            else if (numbers.FindAction("Six").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 6; }
-            else if (numbers.FindAction("Seven").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 7; }
-            else if (numbers.FindAction("Eight").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 8; }
-            else if (numbers.FindAction("Nine").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 9; }
-            else if (numbers.FindAction("Zero").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 10; }
-
             else if (numbers.FindAction("1").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.1f; }
-            else if (numbers.FindAction("2").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.2f; }
-            else if (numbers.FindAction("3").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.3f; }
-            else if (numbers.FindAction("4").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.4f; }
-            else if (numbers.FindAction("5").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.5f; }
-            else if (numbers.FindAction("6").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.6f; }
-            else if (numbers.FindAction("7").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.7f; }
-            else if (numbers.FindAction("8").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.8f; }
-            else if (numbers.FindAction("9").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.9f; }
+
+            if (numbers.FindAction("One").IsPressed())
+            {
+                if (numbers.FindAction("1").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 11f; }
+                else if (numbers.FindAction("2").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 12f; }
+                else if (numbers.FindAction("3").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 13f; }
+                else if (numbers.FindAction("4").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 14f; }
+                else if (numbers.FindAction("5").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 15f; }
+                else if (numbers.FindAction("6").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 16f; }
+                else if (numbers.FindAction("7").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 17f; }
+                else if (numbers.FindAction("8").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 18f; }
+                else if (numbers.FindAction("9").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 19f; }
+                else if (numbers.FindAction("0").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 20f; }
+            }
+            else if (numbers.FindAction("1").IsPressed())
+            {
+                if (numbers.FindAction("One").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.01f; }
+                else if (numbers.FindAction("Two").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.02f; }
+                else if (numbers.FindAction("Three").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.03f; }
+                else if (numbers.FindAction("Four").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.04f; }
+                else if (numbers.FindAction("Five").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.05f; }
+                else if (numbers.FindAction("Six").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.06f; }
+                else if (numbers.FindAction("Seven").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.07f; }
+                else if (numbers.FindAction("Eight").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.08f; }
+                else if (numbers.FindAction("Nine").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.09f; }
+            }
+            else 
+            {
+                if (numbers.FindAction("Two").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 2; }
+                else if (numbers.FindAction("Three").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 3; }
+                else if (numbers.FindAction("Four").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 4; }
+                else if (numbers.FindAction("Five").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 5; }
+                else if (numbers.FindAction("Six").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 6; }
+                else if (numbers.FindAction("Seven").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 7; }
+                else if (numbers.FindAction("Eight").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 8; }
+                else if (numbers.FindAction("Nine").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 9; }
+                else if (numbers.FindAction("Zero").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 10; }
+
+                else if (numbers.FindAction("2").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.2f; }
+                else if (numbers.FindAction("3").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.3f; }
+                else if (numbers.FindAction("4").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.4f; }
+                else if (numbers.FindAction("5").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.5f; }
+                else if (numbers.FindAction("6").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.6f; }
+                else if (numbers.FindAction("7").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.7f; }
+                else if (numbers.FindAction("8").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.8f; }
+                else if (numbers.FindAction("9").WasPressedThisFrame()) { MicSettingsManager.instance.sensitivitySetting = 0.9f; }
+            }
         }
 
         else if (numbers.FindAction("RShift").IsPressed())
