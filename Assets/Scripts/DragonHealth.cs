@@ -41,6 +41,7 @@ public class DragonHealth : MonoBehaviour
         if (Health <= 0)
         {
             Health = 0;
+            HealthBar.value = 0;
             StartCoroutine(KillDragon());
             return true;
         }
