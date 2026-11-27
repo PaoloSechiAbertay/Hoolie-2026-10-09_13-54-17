@@ -17,7 +17,7 @@ public class MicTest : MonoBehaviour
     {
         microphoneDetection = GetComponent<MicrophoneDetection>();
 
-        MicTestBar.gameObject.SetActive(false);
+        MicTestBar.gameObject.SetActive(!MicTestBar.IsActive());
         testing = false;
     }
 

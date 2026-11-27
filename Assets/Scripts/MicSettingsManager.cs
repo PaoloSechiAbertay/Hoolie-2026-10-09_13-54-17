@@ -19,7 +19,7 @@ public class MicSettingsManager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 
@@ -72,6 +72,7 @@ public class MicSettingsManager : MonoBehaviour
             else if (numbers.FindAction("8").WasPressedThisFrame()) { MicSettingsManager.instance.noiseDampeningSetting = 8; }
             else if (numbers.FindAction("9").WasPressedThisFrame()) { MicSettingsManager.instance.noiseDampeningSetting = 9; }
             else if (numbers.FindAction("Zero").WasPressedThisFrame()) { MicSettingsManager.instance.noiseDampeningSetting = 0; }
+
             else if (numbers.FindAction("One").WasPressedThisFrame()) { MicSettingsManager.instance.noiseDampeningSetting = 1; }
             else if (numbers.FindAction("Two").WasPressedThisFrame()) { MicSettingsManager.instance.noiseDampeningSetting = 2; }
             else if (numbers.FindAction("Three").WasPressedThisFrame()) { MicSettingsManager.instance.noiseDampeningSetting = 3; }

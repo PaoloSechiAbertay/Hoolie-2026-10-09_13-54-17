@@ -1485,7 +1485,7 @@
                 {
                     "name": "",
                     "id": "ee29b20a-35c6-4e88-bc4e-c66646d07e57",
-                    "path": "<Keyboard>/0",
+                    "path": "<Keyboard>/9",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -1496,7 +1496,7 @@
                 {
                     "name": "",
                     "id": "9c92b3cb-5c20-4df2-bfdd-c2fb2265b1ab",
-                    "path": "<Keyboard>/1",
+                    "path": "<Keyboard>/0",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",

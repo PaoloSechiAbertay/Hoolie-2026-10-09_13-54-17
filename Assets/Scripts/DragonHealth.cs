@@ -38,7 +38,7 @@ public class DragonHealth : MonoBehaviour
 
         dragonAudioSource.PlayOneShot(dragonHurtSound);
 
-        if (Health < 0)
+        if (Health <= 0)
         {
             Health = 0;
             StartCoroutine(KillDragon());

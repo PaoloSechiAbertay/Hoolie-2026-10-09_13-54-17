@@ -5029,71 +5029,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &1425327036
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2314044934617299710, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2314044934617299710, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2832802443030295738, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
-      propertyPath: m_Name
-      value: MicSettingsManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850275639764918066, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 500.69574
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850275639764918066, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850275639764918066, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 77.88039
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850275639764918066, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850275639764918066, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850275639764918066, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850275639764918066, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850275639764918066, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850275639764918066, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850275639764918066, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4134d61d2a25b884fa05c658688b25c4, type: 3}
 --- !u!1 &1427223313 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3372092682459303347, guid: e9f06690fd4be5344b8283fb01a6adce, type: 3}
@@ -7873,7 +7808,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1425327036}
   - {fileID: 1603793281}
   - {fileID: 229945053}
   - {fileID: 1483405001}
